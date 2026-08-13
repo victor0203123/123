@@ -1,13 +1,21 @@
-// 團隊競賽管理平台｜Firebase 設定
-// 1. 到 Firebase Console 建立「新的」專案
-// 2. 建立 Web App
-// 3. 將 Firebase 提供的 firebaseConfig 值貼到下方
-// 注意：通用版刻意不使用原 AMR 專案設定，避免帶入任何既有人員／隊伍資料。
-window.AMR_FIREBASE_CONFIG = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDqaBl0kvgw2Ln3b_U1-B9JvRIjQZc0Z34",
+  authDomain: "project-8905284055049500533.firebaseapp.com",
+  projectId: "project-8905284055049500533",
+  storageBucket: "project-8905284055049500533.firebasestorage.app",
+  messagingSenderId: "1076323991393",
+  appId: "1:1076323991393:web:3c00dde110548ddd63cf20",
+  measurementId: "G-8BTSCRC6FC"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
