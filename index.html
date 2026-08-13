@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="amr-build" content="template-20260811-v2-excel"><title>團隊競賽管理平台｜通用空白版</title>
+  <meta name="theme-color" content="#dff1ff" />
+  <link rel="manifest" href="./manifest.json" />
+  <style>
+    :root{--bg:#eaf6ff;--bg2:#d8efff;--card:#ffffff;--card2:#f4fbff;--text:#123049;--muted:#68849a;--primary:#2f80ed;--primary2:#76bfff;--accent:#f6c453;--danger:#ef4444;--ok:#16a34a;--line:#cfe8fb;--shadow:0 14px 35px rgba(31,99,151,.16);--radius:24px;--font:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;--titleSize:32px;--bodySize:16px}
+    [data-theme="navy"]{--bg:#07162d;--bg2:#0d2445;--card:#112c52;--card2:#163965;--text:#f6fbff;--muted:#b9cbe4;--primary:#60a5fa;--primary2:#93c5fd;--accent:#f6c453;--line:#294b75;--shadow:0 18px 45px rgba(0,0,0,.35)}
+    [data-theme="gold"]{--bg:#100d08;--bg2:#2b2112;--card:#1d160c;--card2:#2e2413;--text:#fff8e7;--muted:#d8c8a2;--primary:#d8a63a;--primary2:#ffd56a;--accent:#f6c453;--line:#49391a;--shadow:0 18px 45px rgba(0,0,0,.42)}
+    [data-theme="green"]{--bg:#e8f7ef;--bg2:#ccebd9;--card:#ffffff;--card2:#f4fff8;--text:#123726;--muted:#5c806e;--primary:#17965f;--primary2:#55c28c;--accent:#f4c542;--line:#c5e9d5}
+    [data-theme="future"]{--bg:#0b1220;--bg2:#111c33;--card:#101b2f;--card2:#142640;--text:#e8f8ff;--muted:#9ab7ca;--primary:#00b7ff;--primary2:#67e8f9;--accent:#a7f3d0;--line:#24415e}
+    [data-theme="night"]{--bg:#111235;--bg2:#262262;--card:#1b1b49;--card2:#272466;--text:#f5f3ff;--muted:#c4b5fd;--primary:#8b5cf6;--primary2:#a78bfa;--accent:#67e8f9;--line:#3b3472}
+    [data-theme="red"]{--bg:#fff1f2;--bg2:#ffe4e6;--card:#fff;--card2:#fff7f7;--text:#4a1019;--muted:#9b6670;--primary:#dc2626;--primary2:#fb7185;--accent:#f59e0b;--line:#fecdd3}
+    [data-theme="sunrise"]{--bg:#fff7ed;--bg2:#ffedd5;--card:#fff;--card2:#fffaf2;--text:#43270f;--muted:#936b4a;--primary:#f97316;--primary2:#fdba74;--accent:#38bdf8;--line:#fed7aa}
+    [data-theme="carbon"]{--bg:#0e0e10;--bg2:#19191d;--card:#1b1b1f;--card2:#24242a;--text:#f5f5f5;--muted:#a1a1aa;--primary:#e5e7eb;--primary2:#71717a;--accent:#f6c453;--line:#33333a}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,var(--bg),var(--bg2));font-family:var(--font);color:var(--text);font-size:var(--bodySize);min-height:100vh}.app{max-width:980px;margin:auto;min-height:100vh;padding:14px 14px 104px}.topbar{display:flex;align-items:center;justify-content:space-between;margin:8px 2px 14px}.brand{font-weight:900;letter-spacing:.5px}.brand small{display:block;color:var(--muted);font-weight:700;font-size:13px}.bell{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.65);box-shadow:var(--shadow)}.hero{border-radius:30px;padding:24px;background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(221,241,255,.78));box-shadow:var(--shadow);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.7)}.hero:after{content:"";position:absolute;right:-25px;bottom:-36px;width:190px;height:120px;background:radial-gradient(circle at 70% 30%,rgba(47,128,237,.20),transparent 32%),linear-gradient(135deg,transparent 30%,rgba(47,128,237,.12) 31% 45%,transparent 46%),linear-gradient(40deg,transparent 35%,rgba(47,128,237,.18) 36% 48%,transparent 49%);clip-path:polygon(0 100%,28% 35%,45% 73%,62% 20%,100% 100%);opacity:.9}.hero h1{font-size:var(--titleSize);line-height:1.05;margin:0}.hero p{margin:8px 0 0;color:var(--muted);font-weight:700}.grid{display:grid;gap:14px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}.card.blue{background:linear-gradient(135deg,var(--card),var(--card2))}.card h2,.card h3{margin:0 0 12px}.section-title{display:flex;align-items:center;justify-content:space-between;gap:8px}.rankItem{display:flex;align-items:center;gap:12px;padding:12px;border-radius:18px;background:rgba(255,255,255,.58);margin:8px 0;border:1px solid rgba(120,170,210,.2)}.rankItem .medal{font-size:24px;width:34px}.rankItem b{display:block}.rankItem span{margin-left:auto;font-weight:900;color:var(--primary)}.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:rgba(47,128,237,.12);color:var(--primary);padding:6px 10px;font-weight:800;font-size:13px}.btn{border:0;border-radius:16px;padding:12px 16px;background:var(--primary);color:white;font-weight:900;cursor:pointer;box-shadow:0 8px 18px rgba(47,128,237,.22);min-height:44px}.btn.secondary{background:rgba(47,128,237,.12);color:var(--primary);box-shadow:none}.btn.ghost{background:transparent;color:var(--primary);box-shadow:none}.btn.danger{background:var(--danger)}.btn.ok{background:var(--ok)}.btn.full{width:100%}.btn.small{padding:8px 10px;border-radius:12px;min-height:34px;font-size:13px}.bottomNav{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);width:min(980px,calc(100% - 18px));background:rgba(255,255,255,.86);border:1px solid rgba(180,220,245,.8);border-radius:25px;box-shadow:0 18px 42px rgba(31,99,151,.22);display:grid;grid-template-columns:repeat(5,1fr);padding:8px;z-index:50;backdrop-filter:blur(10px)}.navBtn{border:0;background:transparent;border-radius:18px;padding:7px 4px;color:var(--muted);font-weight:900}.navBtn.active{background:rgba(47,128,237,.13);color:var(--primary)}.navBtn i{display:block;font-style:normal;font-size:21px}.fab{position:fixed;left:50%;bottom:72px;transform:translateX(-50%);z-index:60;width:62px;height:62px;border-radius:50%;border:6px solid rgba(255,255,255,.88);background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;font-size:34px;font-weight:900;box-shadow:0 16px 32px rgba(47,128,237,.32);cursor:pointer}.tabs{display:flex;gap:8px;overflow:auto;padding:4px 0 12px}.tab{white-space:nowrap;border:0;border-radius:16px;padding:11px 14px;background:rgba(255,255,255,.7);color:var(--muted);font-weight:900}.tab.active{background:var(--primary);color:white}input,select,textarea{width:100%;border:1px solid var(--line);background:rgba(255,255,255,.9);border-radius:16px;padding:12px 14px;color:var(--text);font:inherit;outline:none;min-height:44px}textarea{min-height:96px;resize:vertical}label{font-size:13px;font-weight:900;color:var(--muted);display:block;margin:10px 0 6px}.formRow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.counter{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-radius:18px;background:rgba(255,255,255,.6);border:1px solid var(--line);margin:9px 0}.counter b{font-size:14px}.counter .ctrl{display:flex;align-items:center;gap:8px}.counter strong{min-width:30px;text-align:center;font-size:18px}.countInput{width:74px;min-height:40px;padding:8px 10px;text-align:center;font-weight:900;font-size:18px;border-radius:12px}.scoreTotal{font-size:28px;font-weight:1000;color:var(--primary);text-align:center;padding:12px}.list{display:grid;gap:10px}.listItem{padding:12px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.65);display:flex;gap:10px;align-items:center}.listItem .grow{flex:1}.listItem p{margin:4px 0;color:var(--muted);font-size:13px}.portalGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.portalCard{min-height:150px;border-radius:26px;padding:16px;color:white;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;box-shadow:var(--shadow);background:linear-gradient(135deg,#60a5fa,#2563eb)}.portalCard:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.48));z-index:1}.portalCard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.portalDetailImage{width:100%;height:auto;max-height:none;object-fit:contain;border-radius:22px;margin:0 0 16px;background:#fff;box-shadow:var(--shadow)}.portalGallery{display:grid;gap:12px;margin:14px 0}.portalGallery img{width:100%;height:auto;object-fit:contain;border-radius:20px;background:#fff;box-shadow:var(--shadow)}.bulkPreview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0}.bulkPreview figure{margin:0}.bulkPreview img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;border:1px solid var(--line)}.bulkPreview figcaption{font-size:11px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.portalCard .pcText{position:relative;z-index:2}.portalCard b{font-size:20px;display:block}.portalCard em{font-style:normal;opacity:.9;font-size:13px}.adminLayout{display:grid;grid-template-columns:280px 1fr;gap:14px}.adminMenu{position:sticky;top:10px}.table{width:100%;border-collapse:separate;border-spacing:0 8px}.table th{text-align:left;color:var(--muted);font-size:13px}.table td{background:rgba(255,255,255,.65);padding:10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.table td:first-child{border-radius:14px 0 0 14px;border-left:1px solid var(--line)}.table td:last-child{border-radius:0 14px 14px 0;border-right:1px solid var(--line)}.notice{padding:12px;border-radius:18px;background:rgba(246,196,83,.18);border:1px solid rgba(246,196,83,.38);color:var(--text)}.toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--card);padding:12px 16px;border-radius:999px;z-index:99;box-shadow:var(--shadow);font-weight:900;display:none}.modal{position:fixed;inset:0;background:rgba(0,0,0,.32);z-index:80;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .18s ease}.modal.show{opacity:1;pointer-events:auto}.sheet{width:min(520px,100%);background:var(--card);border-radius:28px 28px 0 0;padding:18px;box-shadow:0 -14px 44px rgba(0,0,0,.22);transform:translateY(105%);transition:transform .22s ease}.modal.show .sheet{transform:translateY(0)}.empty{text-align:center;color:var(--muted);padding:24px}.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}.fileNote{font-size:12px;color:var(--muted);margin-top:4px}.hidden{display:none!important}@media(max-width:760px){.app{padding:12px 12px 104px}.grid2,.grid3,.split,.adminLayout{grid-template-columns:1fr}.hero h1{font-size:28px}.portalGrid{grid-template-columns:1fr}.adminMenu{position:static}.formRow{grid-template-columns:1fr}.card{padding:14px}.bottomNav{border-radius:22px}.navBtn{font-size:12px}.navBtn i{font-size:20px}}
+  
+.portalEntryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.portalEntryCard{display:block;text-decoration:none;color:var(--text);border:1px solid var(--line);border-radius:20px;overflow:hidden;background:rgba(255,255,255,.72);box-shadow:var(--shadow)}.portalEntryCard img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#eef7ff}.portalEntryCard .entryBody{padding:13px}.portalEntryCard h3{margin:0 0 5px;font-size:18px}.portalEntryCard p{margin:0;color:var(--muted);font-size:13px}.entryBadge{display:inline-flex;padding:4px 8px;border-radius:999px;background:rgba(47,128,237,.12);color:var(--primary);font-size:11px;font-weight:900;margin-bottom:7px}.entryAdmin{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}@media(max-width:760px){.portalEntryGrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-theme="sky">
+<div class="toast" id="toast"></div>
+<div class="app" id="app"></div>
+<nav class="bottomNav" id="nav"></nav>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="./firebase-config.js"></script>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
+import { getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
+import { getFirestore, collection, doc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, getDocs, getDoc, serverTimestamp, runTransaction } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js';
+
+const AMR_BUILD = 'template-20260811-v2-excel';
+const firebaseConfig = window.AMR_FIREBASE_CONFIG || {};
+const firebaseReady = Boolean(firebaseConfig.apiKey && firebaseConfig.projectId && !String(firebaseConfig.apiKey).includes('YOUR_'));
+if(!firebaseReady){
+  document.querySelector('#app').innerHTML = `
+    <div class="topbar"><div class="brand">團隊競賽管理平台<small>通用空白版</small></div></div>
+    <section class="hero"><h1>⚙️ 首次設定</h1><p>此範本沒有任何姓名、隊伍或原系統雲端資料。</p></section>
+    <div class="card blue" style="margin-top:14px">
+      <h2>請先設定自己的 Firebase</h2>
+      <div class="notice">打開 <b>firebase-config.js</b>，貼上新 Firebase 專案的 Web App 設定後再重新整理。完成後即可自行建立／匯入隊伍與人員，並使用所有管理功能。</div>
+      <p class="fileNote">此設計刻意不連接原 AMR Firebase，避免範本顯示任何既有人員或隊伍資料。</p>
+    </div>`;
+  document.querySelector('#nav').innerHTML='';
+  throw new Error('Firebase 尚未設定');
+}
+
+const appFB = initializeApp(firebaseConfig);
+const auth = getAuth(appFB);
+const db = getFirestore(appFB);
+const storage = getStorage(appFB);
+let currentUser = null;
+signInAnonymously(auth).catch(()=>{});
+onAuthStateChanged(auth,u=>{currentUser=u;});
+
+const $ = s=>document.querySelector(s);
+const app = $('#app');
+window.addEventListener('unhandledrejection',e=>{console.error('Unhandled promise rejection',e.reason);toast(`操作失敗：${e.reason?.message||e.reason||'未知錯誤'}`)});
+const toast = msg=>{const t=$('#toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',1800)};
+const esc = v => String(v??'').replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':'&quot;'}[c]));
+function portalImg(p){return p?.coverImage || p?.image || p?.imageUrl || p?.bannerImage || ''}
+function safeUrl(v){const x=String(v||'').trim();if(!x)return '';return /^(https?:|data:|blob:)/i.test(x)?x:'https://'+x}
+function uniquePortalItems(list){
+  const map=new Map();
+  for(const p of (list||[])){
+    const key=norm(p.title||p.id||Math.random());
+    if(!key) continue;
+    const old=map.get(key);
+    if(!old || Number(p.order||99) <= Number(old.order||99)) map.set(key,p);
+  }
+  return [...map.values()].sort((a,b)=>Number(a.order||99)-Number(b.order||99));
+}
+
+const fmtDate = ts => {try{const d=ts?.toDate?ts.toDate():ts?new Date(ts):new Date();return d.toLocaleString('zh-TW',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})}catch{return ''}};
+const today = () => new Date().toLocaleDateString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',weekday:'short'});
+
+const defaultSettings = {mainTitle:'團隊競賽管理平台', subTitle:'請至管理中心設定競賽名稱', slogan:'團結・合作・突破・共創榮耀', bannerImage:'', theme:'sky', titleSize:32, bodySize:16, cardColor:'#ffffff', baseStart:'2026-07-06', weekCount:26, scoreRules:null, deletedScoreRules:[]};
+const themes = [
+  ['sky','☁️ Sky'],['navy','👔 Executive Navy'],['gold','🏆 Champion Gold'],['green','🌲 Nanshan Green'],['future','🚀 Future Tech'],['night','🌙 Night COP'],['red','❤️ Festival Red'],['sunrise','🌅 Sunrise'],['carbon','🖤 Carbon Pro'],['custom','🌈 Custom']
+];
+const defaultPortals = [
+ {title:'競賽專區',subtitle:'競賽辦法・積分規則',icon:'🏆',type:'link',order:1,visible:true,image:'',content:'可在管理中心自行修改本專區內容。'},
+ {title:'活動資訊',subtitle:'活動內容・報名連結',icon:'🚀',type:'activity',order:2,visible:true,image:'',content:'可在管理中心新增活動、圖片與報名連結。'},
+ {title:'新人流程',subtitle:'新人資料・快速查詢',icon:'🪪',type:'link',order:3,visible:true,image:'',content:'可在管理中心自行建立新人流程與相關連結。'},
+ {title:'培訓制度',subtitle:'制度公文・培訓資料',icon:'🌱',type:'pdf',order:4,visible:true,image:'',content:'可上傳 PDF、圖片或文字內容。'},
+ {title:'主管制度',subtitle:'職級制度・必修課程',icon:'👑',type:'pdf',order:5,visible:true,image:'',content:'可在管理中心自行修改制度與職級內容。'},
+ {title:'學習資源',subtitle:'教材・日期・快速查詢',icon:'📚',type:'link',order:6,visible:true,image:'',content:'可放教材、連結、PDF 與 YouTube。'}
+];
+const defaultScoreRules = {
+  personal:[['contact','網增接觸／新增名單／約訪',1],['soft_cop','緣故約訪 COP／軟性活動',2],['first_meeting','初次面談',3],['deep_meeting','深度面談',5],['self_cop','自己參加 COP',2],['bring_cop','帶新朋友參加 COP',3]],
+  team:[['dream_attend','夢想起飛／夜創出席',2],['dream_friend','帶新朋友參加夢想起飛',3],['soft_attend','通訊處軟性活動出席',2],['soft_friend','帶新朋友參加軟性活動',3],['exam_pass','公司考通過',5],['registered','登錄＋簽約',10],['training','參加優培',5],['team_recruit','團隊共同運作增員',20]]
+};
+function activeScoreRules(){
+  const saved=S.settings?.scoreRules;
+  const normalize=(arr,mode)=>(Array.isArray(arr)?arr:defaultScoreRules[mode]).map((r,i)=>Array.isArray(r)?r:[r.key||(`${mode}_${i+1}`),r.label||'未命名項目',Number(r.points||0)]);
+  return {personal:normalize(saved?.personal,'personal'),team:normalize(saved?.team,'team')};
+}
+function localDateValue(d){
+  const y=d.getFullYear();
+  const m=String(d.getMonth()+1).padStart(2,'0');
+  const day=String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${day}`;
+}
+function weekOptions(){
+  const count=Math.max(1,Number(S.settings.weekCount||26));
+  const base=new Date((S.settings.baseStart||'2026-07-06')+'T00:00:00');
+  return Array.from({length:count},(_,i)=>{
+    const st=new Date(base);st.setDate(base.getDate()+i*7);
+    const ed=new Date(st);ed.setDate(st.getDate()+6);
+    const fmt=d=>`${d.getMonth()+1}/${d.getDate()}`;
+    return {no:i+1,label:`第 ${i+1} 週｜${fmt(st)}－${fmt(ed)}`,start:localDateValue(st),end:localDateValue(ed)};
+  });
+}
+function currentWeekNumber(){
+  const weeks=weekOptions();
+  const base=new Date((S.settings.baseStart||'2026-07-06')+'T00:00:00');
+  const now=new Date();
+  const todayLocal=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const diff=Math.floor((todayLocal-base)/(24*60*60*1000));
+  const no=Math.floor(diff/7)+1;
+  return Math.min(weeks.length,Math.max(1,no));
+}
+let S = {settings:{...defaultSettings},teams:[],members:[],announcements:[],portals:[],portalEntries:[],scores:[],events:[],attendance:[],checkins:[],humanSuperCup:[],portalImages:[],importReport:'',excelImportRows:[],excelImportFile:'',page:'home',scoreMode:'personal',adminTab:'settings',rankTab:'score',sharedTeam:'',sharedMember:'',selectedPortal:null,selectedPortalEntry:null,edit:null,entryEdit:null,entryDraftImages:[],entryDraftForm:null,counts:{},bulkPortalImages:[],portalDraftImages:[],scoreWeek:null,scoreWeekManual:false,ruleMode:'personal',ruleEdit:null,hscEdit:null,attendanceDate:new Date().toISOString().slice(0,10),attendanceTeam:'',attendanceMember:'',attendanceStatus:'出席',homeRankWeek:null,rankWeek:null,rankWeekAll:true,editScoreId:null};
+function col(name){return collection(db,name)}
+function listen(name,key){onSnapshot(col(name),snap=>{S[key]=snap.docs.map(d=>({id:d.id,...d.data()})); render();},()=>{})}
+let settingsWriteDepth=0;
+function stableValue(v){if(v===undefined)return null;if(Array.isArray(v))return v.map(stableValue);if(v&&typeof v==='object'){const out={};Object.keys(v).sort().forEach(k=>{if(k!=='updatedAt')out[k]=stableValue(v[k])});return out}return v}
+function sameValue(a,b){return JSON.stringify(stableValue(a))===JSON.stringify(stableValue(b))}
+function scoreRulesForFirestore(rules){
+  const one=arr=>(arr||[]).map((r,i)=>Array.isArray(r)?{key:String(r[0]||`rule_${i+1}`),label:String(r[1]||'未命名項目'),points:Number(r[2]||0)}:{key:String(r?.key||`rule_${i+1}`),label:String(r?.label||'未命名項目'),points:Number(r?.points||0)});
+  return {personal:one(rules?.personal),team:one(rules?.team)};
+}
+function patchForFirestore(patch){
+  const out={...patch};
+  if(out.scoreRules) out.scoreRules=scoreRulesForFirestore(out.scoreRules);
+  if(Array.isArray(out.deletedScoreRules)) out.deletedScoreRules=out.deletedScoreRules.map((x,i)=>({
+    mode:String(x?.mode||'personal'),
+    item:Array.isArray(x?.item)?{key:String(x.item[0]||`deleted_${i+1}`),label:String(x.item[1]||'未命名項目'),points:Number(x.item[2]||0)}:{key:String(x?.item?.key||`deleted_${i+1}`),label:String(x?.item?.label||'未命名項目'),points:Number(x?.item?.points||0)},
+    deletedAt:Number(x?.deletedAt||Date.now())
+  }));
+  return out;
+}
+async function writeSettingsPatch(patch,successText='設定已儲存'){
+  settingsWriteDepth++;
+  try{
+    const ref=doc(db,'platform','settings');
+    const firestorePatch=patchForFirestore(patch);
+    // 只合併本次變更，不重寫整份舊 settings，避免舊資料中的巢狀陣列造成 Firestore 拒絕寫入。
+    await setDoc(ref,{...firestorePatch,updatedAt:serverTimestamp()},{merge:true});
+    const verify=await getDoc(ref);if(!verify.exists())throw new Error('Firebase 找不到設定文件');const server=verify.data();
+    for(const [k,v] of Object.entries(firestorePatch)){if(!sameValue(server[k],v))throw new Error(`欄位 ${k} 儲存後驗證不一致`)}
+    S.settings={...defaultSettings,...server};applyTheme();render();toast(successText);return server;
+  }finally{settingsWriteDepth=Math.max(0,settingsWriteDepth-1)}
+}
+onSnapshot(doc(db,'platform','settings'),snap=>{if(settingsWriteDepth>0)return;S.settings={...defaultSettings,...(snap.exists()?snap.data():{})};applyTheme();render();});
+['teams','members','announcements','portals','portal_entries','score_history','events','attendance','checkins','human_super_cup','portal_images'].forEach(n=>listen(n,n==='score_history'?'scores':(n==='portal_entries'?'portalEntries':(n==='human_super_cup'?'humanSuperCup':(n==='portal_images'?'portalImages':n)))));
+async function seedPortals(){const qs=await getDocs(col('portals')); if(qs.empty){for(const p of defaultPortals) await addDoc(col('portals'),{...p,createdAt:serverTimestamp()});}}
+setTimeout(seedPortals,1200);
+const norm=v=>String(v||'').trim().toLowerCase();
+function readLegacyTeams(data){
+  const a=data?.amrData?.teams;
+  const b=data?.teams;
+  if(Array.isArray(a)&&a.length) return a;
+  if(Array.isArray(b)&&b.length) return b;
+  return [];
+}
+async function importLegacyTeams(manual=false){
+  try{
+    const snap=await getDoc(doc(db,'platform','settings'));
+    const data=snap.exists()?snap.data():{};
+    const legacy=readLegacyTeams(data);
+    if(!legacy.length){S.importReport='找不到舊隊伍資料'; if(manual) toast('找不到舊資料'); render(); return;}
+    const teamDocs=(await getDocs(col('teams'))).docs.map(d=>({id:d.id,...d.data()}));
+    const memDocs=(await getDocs(col('members'))).docs.map(d=>({id:d.id,...d.data()}));
+    const teamMap=new Map(teamDocs.map(t=>[norm(t.name),t]));
+    const memberSet=new Set(memDocs.map(m=>norm((m.teamName||'')+'|'+(m.name||''))));
+    let addedTeams=0, addedMembers=0, skippedTeams=0, skippedMembers=0;
+    for(const raw of legacy){
+      const name=String(raw?.name||raw?.title||'').trim();
+      if(!name) continue;
+      let team=teamMap.get(norm(name));
+      if(!team){
+        const ref=await addDoc(col('teams'),{name, color:raw.color||'', icon:raw.icon||'', note:'由舊資料自動匯入', source:'legacy', createdAt:serverTimestamp(), updatedAt:serverTimestamp()});
+        team={id:ref.id,name}; teamMap.set(norm(name),team); addedTeams++;
+      }else skippedTeams++;
+      const members=Array.isArray(raw.members)?raw.members:[];
+      for(const m of members){
+        const mn=String(m?.name||m||'').trim();
+        if(!mn) continue;
+        const key=norm(name+'|'+mn);
+        if(memberSet.has(key)){skippedMembers++; continue;}
+        await addDoc(col('members'),{name:mn, teamId:team.id, teamName:name, role:'', phone:'', status:'active', source:'legacy', createdAt:serverTimestamp(), updatedAt:serverTimestamp()});
+        memberSet.add(key); addedMembers++;
+      }
+    }
+    await setDoc(doc(db,'platform','settings'),{legacyImportedAt:new Date().toISOString(),updatedAt:serverTimestamp()},{merge:true});
+    S.importReport=`已匯入 ${addedTeams} 個隊伍、${addedMembers} 位人員；略過重複 ${skippedTeams} 個隊伍、${skippedMembers} 位人員。`;
+    toast('匯入完成'); render();
+  }catch(e){console.error(e); S.importReport='匯入失敗：'+(e?.message||e); if(manual) toast('匯入失敗'); render();}
+}
+async function autoImportLegacy(){
+  if(S.teams.length||S.members.length||S.settings?.legacyImportedAt) return;
+  await importLegacyTeams(false);
+}
+// 通用空白版不自動匯入任何舊姓名／隊伍；如有需要請由管理中心手動匯入。
+function applyTheme(){const th=S.settings.theme||'sky';document.body.dataset.theme=th==='custom'?'sky':th;document.documentElement.style.setProperty('--titleSize',(S.settings.titleSize||32)+'px');document.documentElement.style.setProperty('--bodySize',(S.settings.bodySize||16)+'px');}
+
+function nav(){const items=[['home','🏠','首頁'],['score','📝','登記分數'],['ranking','🏆','排行榜'],['portal','⭐','人力資訊'],['admin','⚙️','管理']];$('#nav').innerHTML=items.map(([id,ic,tx])=>`<button type="button" class="navBtn ${S.page===id?'active':''}" data-go="${id}"><i>${ic}</i>${tx}</button>`).join('')}
+function go(page){S.page=page;S.selectedPortal=null;S.selectedPortalEntry=null; render(); window.scrollTo({top:0,behavior:'smooth'})}
+function scoresBy(){let personal={},team={}; for(const r of S.scores){if(r.deleted) continue; const n=Number(r.total||0); if(r.mode==='personal'){if(r.memberName) personal[r.memberName]=(personal[r.memberName]||0)+n;} else if(r.mode==='team'){if(r.teamName) team[r.teamName]=(team[r.teamName]||0)+n;}} return {personal,team}}
+function scoreRecordWeekNo(r){if(Number(r?.weekNo)>0)return Number(r.weekNo);try{const d=r?.createdAt?.toDate?r.createdAt.toDate():r?.createdAt?new Date(r.createdAt):null;if(!d)return 0;const base=new Date((S.settings.baseStart||'2026-07-06')+'T00:00:00');const day=new Date(d.getFullYear(),d.getMonth(),d.getDate());return Math.max(1,Math.floor((day-base)/(7*24*60*60*1000))+1)}catch{return 0}}
+function scoresByWeek(weekNo){let personal={},team={};for(const r of S.scores){if(r.deleted||scoreRecordWeekNo(r)!==Number(weekNo))continue;const n=Number(r.total||0);if(r.mode==='personal'&&r.memberName)personal[r.memberName]=(personal[r.memberName]||0)+n;else if(r.mode==='team'&&r.teamName)team[r.teamName]=(team[r.teamName]||0)+n;}return {personal,team}}
+function weeklyRankHistory(){const weeks=weekOptions();const used=[...new Set(S.scores.filter(x=>!x.deleted).map(scoreRecordWeekNo).filter(Boolean))].sort((a,b)=>b-a);if(!used.length)return '<div class="empty">尚無每週排行榜</div>';return used.map(no=>{const w=weeks.find(x=>x.no===no)||{label:`第 ${no} 週`};const sb=scoresByWeek(no);const team=topList(sb.team,5);const personal=topList(sb.personal,5);const block=(title,arr)=>`<div><h3>${title}</h3>${arr.length?arr.map((x,i)=>`<div class="rankItem"><div class="medal">${['🥇','🥈','🥉'][i]||i+1}</div><b>${esc(x[0])}</b><span>${x[1]} 分</span></div>`).join(''):'<div class="empty">尚無資料</div>'}</div>`;return `<details class="card blue" style="margin:10px 0" ${no===currentWeekNumber()?'open':''}><summary style="cursor:pointer;font-weight:900;font-size:18px">${esc(w.label)}</summary><div class="split" style="margin-top:12px">${block('🏆 團隊前五名',team)}${block('👤 個人前五名',personal)}</div></details>`}).join('')}
+function topList(obj,limit=3){return Object.entries(obj).sort((a,b)=>b[1]-a[1]).slice(0,limit)}
+function rankBlock(title,arr){return `<div class="card blue"><div class="section-title"><h2>${title}</h2><button class="btn small secondary" data-go="ranking">查看</button></div>${arr.length?arr.map((x,i)=>`<div class="rankItem"><div class="medal">${['🥇','🥈','🥉'][i]||i+1}</div><b>${esc(x[0])}</b><span>${x[1]} 分</span></div>`).join(''):'<div class="empty">尚無資料</div>'}</div>`}
+function header(){return `<div class="topbar"><div class="brand">${esc(S.settings.mainTitle)}<small>${esc(S.settings.subTitle)}</small></div><div class="bell">🔔</div></div><section class="hero" style="${S.settings.bannerImage?`background-image:linear-gradient(135deg,rgba(255,255,255,.86),rgba(221,241,255,.78)),url('${S.settings.bannerImage}');background-size:cover;background-position:center;`:''}"><h1>${esc(S.settings.mainTitle)}</h1><p>${esc(S.settings.subTitle)}｜${today()}</p><p>${esc(S.settings.slogan)}</p></section>`}
+function home(){
+  const currentWeek=currentWeekNumber();
+  const weeks=weekOptions();
+  if(!S.homeRankWeek||!weeks.some(w=>w.no===Number(S.homeRankWeek)))S.homeRankWeek=currentWeek;
+  const selectedWeekNo=Number(S.homeRankWeek);
+  const sb=scoresByWeek(selectedWeekNo);
+  const week=weeks.find(w=>w.no===selectedWeekNo);
+  const anns=S.announcements.filter(a=>a.visible!==false).sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0)).slice(0,3);
+  const latest=S.scores.filter(x=>!x.deleted).sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0)).slice(0,5);
+  return `${header()}
+  <div class="card" style="margin-top:14px">
+    <label style="margin-top:0">首頁排行榜週數</label>
+    <select id="homeRankWeek">
+      ${weeks.map(w=>`<option value="${w.no}" ${w.no===selectedWeekNo?'selected':''}>${esc(w.label)}</option>`).join('')}
+    </select>
+    <div class="fileNote">選擇第幾週後，下方團隊與個人 TOP5 會立即切換。</div>
+  </div>
+  <div class="grid" style="margin-top:14px">
+    ${rankBlock('🏆 團隊 TOP5 '+(week?`｜${esc(week.label)}`:''),topList(sb.team,5))}
+    ${rankBlock('👤 個人 TOP5 '+(week?`｜${esc(week.label)}`:''),topList(sb.personal,5))}
+    <div class="card"><h2>📢 最新公告</h2>${anns.length?anns.map(a=>`<div class="listItem"><div class="grow"><b>${esc(a.title)}</b><p>${esc(a.content||'')}</p></div></div>`).join(''):'<div class="empty">尚無公告</div>'}</div>
+    <div class="card"><h2>⚡ 最新積分紀錄</h2>${latest.length?latest.map(r=>`<div class="listItem"><div class="grow"><b>${esc(r.mode==='team'?r.teamName:r.memberName)}</b><p>${r.mode==='team'&&r.memberName?esc('登記人：'+r.memberName)+'｜':''}${esc(r.teamName||'')}｜${r.weekLabel?esc(r.weekLabel)+'｜':''}${fmtDate(r.createdAt)}｜${esc(r.source||'手動')}</p></div><span class="pill">${Number(r.total)>0?'+':''}${Number(r.total||0)}</span></div>`).join(''):'<div class="empty">尚無積分紀錄</div>'}</div>
+  </div>`;
+}
+
+function scorePage(){
+  const teams=S.teams;
+  const mems=S.members.filter(m=>!S.sharedTeam||m.teamId===S.sharedTeam||m.teamName===teamName(S.sharedTeam));
+  const rules=activeScoreRules()[S.scoreMode];
+  const counts=S.counts[S.scoreMode]||{};
+  const total=rules.reduce((sum,[k,,p])=>sum+(Number(counts[k]||0)*Number(p||0)),0);
+  const weeks=weekOptions();
+  const autoWeek=currentWeekNumber();
+  if(!S.scoreWeekManual) S.scoreWeek=autoWeek;
+  if(!S.scoreWeek||S.scoreWeek>weeks.length)S.scoreWeek=autoWeek;
+  const selectedWeek=weeks.find(w=>w.no===Number(S.scoreWeek))||weeks[autoWeek-1];
+  return `<div class="card" style="margin-top:14px">
+    <div class="tabs"><button class="tab ${S.scoreMode==='personal'?'active':''}" data-scoretab="personal">👤 個人積分</button><button class="tab ${S.scoreMode==='team'?'active':''}" data-scoretab="team">👥 團隊積分</button></div>
+    <div class="notice">目前選擇：${esc(teamName(S.sharedTeam)||'未選隊伍')}｜${esc(memberName(S.sharedMember)||'未選姓名')}</div>
+    <div class="notice" style="margin-top:10px"><b>本次自動計入：${esc(selectedWeek.label)}</b><br><span style="color:var(--muted)">系統會依今天日期自動判斷週數。</span></div>
+    <label style="display:flex;align-items:center;gap:8px"><input id="manualWeekToggle" type="checkbox" ${S.scoreWeekManual?'checked':''} style="width:auto;min-height:auto"> 補填其他週數</label>
+    ${S.scoreWeekManual?`<label>補填週數</label><select id="scoreWeek">${weeks.map(w=>`<option value="${w.no}" ${Number(S.scoreWeek)===w.no?'selected':''}>${w.label}</option>`).join('')}</select>`:''}
+    ${S.scoreMode==='team'?`<div class="notice" style="margin-top:10px">團隊積分仍需選擇姓名，用來記錄是哪位夥伴完成或登記；分數只會計入團隊排行。</div>`:''}<label>隊伍</label><select id="scoreTeam"><option value="">請選擇隊伍</option>${teams.map(t=>`<option value="${t.id}" ${S.sharedTeam===t.id?'selected':''}>${esc(t.name)}</option>`).join('')}</select>
+    <label>姓名</label><select id="scoreMember"><option value="">請選擇姓名</option>${mems.map(m=>`<option value="${m.id}" ${S.sharedMember===m.id?'selected':''}>${esc(m.name)}</option>`).join('')}</select>
+    <div style="margin-top:14px">${rules.map(([k,txt,pts])=>`<div class="counter"><b>${esc(txt)} <small class="pill">${Number(pts||0)}分</small></b><div class="ctrl"><button type="button" class="btn small secondary" data-count="${esc(k)}" data-delta="-1">－</button><input class="countInput" data-count-input="${esc(k)}" type="number" min="0" step="1" inputmode="numeric" value="${Number(counts[k]||0)}" aria-label="${esc(txt)} 次數"><button type="button" class="btn small" data-count="${esc(k)}" data-delta="1">＋</button></div></div>`).join('')}</div>
+    <div class="scoreTotal">本次得分 ${total} 分</div><button class="btn full" id="saveScore" type="button">儲存本次紀錄</button>
+  </div>`
+}
+function teamName(id){return S.teams.find(t=>t.id===id)?.name||''} function memberName(id){return S.members.find(m=>m.id===id)?.name||''}
+async function saveScore(){
+  if(!S.sharedTeam) return toast('請先選隊伍');
+  if(!S.sharedMember) return toast('請先選姓名');
+  const rules=activeScoreRules()[S.scoreMode];
+  const counts=S.counts[S.scoreMode]||{};
+  const items=rules.map(([k,txt,pts])=>({key:k,label:txt,points:Number(pts||0),count:Number(counts[k]||0),score:Number(counts[k]||0)*Number(pts||0)})).filter(x=>x.count);
+  const total=items.reduce((s,x)=>s+x.score,0);
+  if(!items.length) return toast('請先登記項目次數');
+  const week=weekOptions().find(w=>w.no===Number(S.scoreWeek))||weekOptions()[0];
+  await addDoc(col('score_history'),{mode:S.scoreMode,weekNo:week.no,weekLabel:week.label,weekStart:week.start,weekEnd:week.end,teamId:S.sharedTeam,teamName:teamName(S.sharedTeam),memberId:S.sharedMember,memberName:memberName(S.sharedMember),items,total,source:'手動',createdBy:currentUser?.uid||'anonymous',note:'',deleted:false,createdAt:serverTimestamp(),updatedAt:serverTimestamp()});
+  S.counts[S.scoreMode]={}; toast(`第 ${week.no} 週已儲存`); render();
+}
+function ranking(){
+  const tabs=[['score','🏆 積分排行'],['hsc','🏅 人超盃'],['att','📅 例會出席'],['history','📜 歷史紀錄']];
+  const weeks=weekOptions();
+  const currentWeek=currentWeekNumber();
+  if(!S.rankWeek||!weeks.some(w=>w.no===Number(S.rankWeek)))S.rankWeek=currentWeek;
+  const weekSelector=`<div style="margin:12px 0"><label style="margin-top:0">排行榜週次</label>
+    <label style="display:flex;align-items:center;gap:8px;margin:8px 0"><input id="rankWeekAll" type="checkbox" ${S.rankWeekAll?'checked':''} style="width:auto;min-height:auto"> 顯示全部累計</label>
+    ${S.rankWeekAll?'':`<select id="rankWeek">${weeks.map(w=>`<option value="${w.no}" ${Number(S.rankWeek)===w.no?'selected':''}>${esc(w.label)}</option>`).join('')}</select>`}
+  </div>`;
+  const editSheet=S.editScoreId?(()=>{
+    const r=S.scores.find(x=>x.id===S.editScoreId); if(!r)return '';
+    const itemsDetail=(r.items||[]).map(it=>`<div style="display:flex;justify-content:space-between;padding:4px 0"><span>${esc(it.label||'')}</span><span>× ${Number(it.count||0)} ＝ ${Number(it.count||0)*Number(it.points||0)} 分</span></div>`).join('');
+    return `<div class="modal show" id="editScoreModal" style="align-items:center;justify-content:center"><div class="sheet" style="border-radius:28px;transform:translateY(0);max-width:480px;width:100%;padding:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 style="margin:0">✏️ 修改積分紀錄</h2>
+        <button class="btn ghost small" onclick="S.editScoreId=null;render()" type="button">✕</button>
+      </div>
+      <div style="background:rgba(255,255,255,.5);border-radius:16px;padding:14px;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--muted);margin-bottom:4px">${fmtDate(r.createdAt)}｜${r.mode==='team'?'👥 團隊':'👤 個人'}</div>
+        <div style="font-weight:900;font-size:18px">${esc(r.mode==='team'?(r.teamName+(r.memberName?'｜'+r.memberName:'')):r.memberName)}</div>
+        <div style="margin-top:8px;font-size:13px">${itemsDetail||'無明細'}</div>
+      </div>
+      <label>更正後總分</label>
+      <input id="editScoreTotal" type="number" value="${r.total}" style="font-size:20px;font-weight:900;text-align:center">
+      <label>備註原因</label>
+      <input id="editScoreNote" value="${esc(r.note||'更正分數')}" placeholder="例如：更正分數、補登">
+      <button class="btn full" id="saveEditScore" type="button" style="margin-top:14px">💾 儲存修改</button>
+    </div></div>`;
+  })():'';
+  return `<div class="card" style="margin-top:14px"><div class="tabs">${tabs.map(([id,tx])=>`<button class="tab ${S.rankTab===id?'active':''}" data-ranktab="${id}">${tx}</button>`).join('')}</div>${S.rankTab==='score'?weekSelector:''}${rankContent()}</div>${editSheet}`}
+function rankContent(){
+  let sb;
+  if(S.rankTab==='score'){
+    if(S.rankWeekAll){sb=scoresBy();}else{sb=scoresByWeek(S.rankWeek||currentWeekNumber());}
+    const weekLabel=S.rankWeekAll?'全部累計':(weekOptions().find(w=>w.no===Number(S.rankWeek))?.label||'');
+    return `<div class="split">${rankBlock('👥 團隊排行 '+(S.rankWeekAll?'(全部累計)':'｜'+weekLabel),topList(sb.team,20))}${rankBlock('👤 個人排行 '+(S.rankWeekAll?'(全部累計)':'｜'+weekLabel),topList(sb.personal,20))}</div>`;
+  }
+  if(S.rankTab==='hsc'){
+    const arr=(S.humanSuperCup||[]).filter(x=>!x.deleted).sort((a,b)=>Number(b.score||0)-Number(a.score||0));
+    return `<h2>🏅 人超盃個人分數</h2>${arr.map((x,i)=>`<div class="rankItem"><div class="medal">${i<3?['🥇','🥈','🥉'][i]:i+1}</div><b>${esc(x.memberName||'未命名')}</b><span>${Number(x.score||0)} 分${x.achieved?'｜✅ 已達成':''}</span></div>`).join('')||'<div class="empty">尚無人超盃分數</div>'}<h2>🎯 達成人員</h2>${arr.filter(x=>x.achieved===true).map(x=>`<span class="pill" style="margin:4px">✅ ${esc(x.memberName)}</span>`).join('')||'<div class="empty">尚無標記達成人員</div>'}`;
+  }
+  if(S.rankTab==='att') return attendancePanel();
+  const rows=S.scores.filter(x=>!x.deleted).sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
+  return `<h2>🗓️ 每週排行榜</h2>${weeklyRankHistory()}<h2 style="margin-top:20px">📜 積分歷史紀錄</h2>${rows.length?rows.map(r=>{
+      const itemsDetail=(r.items||[]).map(it=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)"><span>${esc(it.label||'')}</span><span style="font-weight:800;color:var(--primary)">× ${Number(it.count||0)} ＝ ${Number(it.count||0)*Number(it.points||0)} 分</span></div>`).join('');
+      const note=r.note?`<div style="margin-top:8px;padding:8px 12px;border-radius:12px;background:rgba(246,196,83,.12);border:1px solid rgba(246,196,83,.3);font-size:13px">📝 備註：${esc(r.note)}</div>`:'';
+      const weekTag=r.weekLabel?`<span class="pill" style="margin-left:6px">${esc(r.weekLabel)}</span>`:'';
+      return `<div class="card" style="margin:10px 0;padding:16px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px">
+          <div>
+            <div style="font-size:13px;color:var(--muted);margin-bottom:4px">${fmtDate(r.createdAt)}</div>
+            <div style="font-weight:900;font-size:18px">${esc(r.mode==='team'?(r.teamName+(r.memberName?'｜'+r.memberName:'')):r.memberName)}</div>
+            <div style="margin-top:4px"><span class="pill">${r.mode==='team'?'👥 團隊':'👤 個人'}</span>${weekTag}</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:32px;font-weight:1000;color:var(--primary)">${Number(r.total)>0?'+':''}${r.total}</div>
+            <div style="font-size:13px;color:var(--muted)">總分</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.5);border-radius:14px;padding:10px 14px;margin:8px 0">
+          <div style="font-size:12px;font-weight:800;color:var(--muted);margin-bottom:6px">📋 項目明細</div>
+          ${itemsDetail||'<div style="color:var(--muted);font-size:13px">無明細</div>'}
+        </div>
+        ${note}
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="btn small secondary" data-edit-score="${r.id}">✏️ 修改</button>
+          <button class="btn small danger" data-del-score="${r.id}">🗑️ 刪除</button>
+        </div>
+      </div>`
+    }).join(''):'<div class="empty">尚無歷史紀錄</div>'}`;
+}
+
+function attendancePanel(){
+  const selectedDate=S.attendanceDate||new Date().toISOString().slice(0,10);
+  const teams=S.teams.slice().sort((a,b)=>String(a.name||'').localeCompare(String(b.name||''),'zh-Hant'));
+  const members=S.members.filter(m=>!S.attendanceTeam||m.teamId===S.attendanceTeam||m.teamName===teamName(S.attendanceTeam))
+    .slice().sort((a,b)=>String(a.name||'').localeCompare(String(b.name||''),'zh-Hant'));
+  const records=S.attendance.filter(a=>(a.date||'')===selectedDate).sort((a,b)=>String(a.memberName||'').localeCompare(String(b.memberName||''),'zh-Hant'));
+  const countStatus=status=>records.filter(r=>(r.status||'出席')===status).length;
+  const present=countStatus('出席')+countStatus('遲到');
+  const total=records.length;
+  const rate=total?Math.round((present/total)*100):0;
+
+  const memberRates=S.members.map(m=>{
+    const rows=S.attendance.filter(a=>a.memberId===m.id);
+    const attended=rows.filter(a=>['出席','遲到'].includes(a.status||'出席')).length;
+    return {name:m.name,team:m.teamName||teamName(m.teamId),total:rows.length,attended,rate:rows.length?Math.round(attended/rows.length*100):0};
+  }).filter(x=>x.total).sort((a,b)=>b.rate-a.rate||b.total-a.total);
+
+  return `<h2>📅 例會出席率</h2>
+  <div class="split">
+    <div>
+      <label>例會日期</label><input id="attendanceDate" type="date" value="${esc(selectedDate)}">
+      <label>隊伍</label><select id="attendanceTeam"><option value="">全部隊伍</option>${teams.map(t=>`<option value="${t.id}" ${S.attendanceTeam===t.id?'selected':''}>${esc(t.name)}</option>`).join('')}</select>
+      <label>姓名</label><select id="attendanceMember"><option value="">請選擇姓名</option>${members.map(m=>`<option value="${m.id}" ${S.attendanceMember===m.id?'selected':''}>${esc(m.name)}</option>`).join('')}</select>
+      <label>出缺席狀況</label><select id="attendanceStatus">
+        ${['出席','遲到','請假','缺席'].map(s=>`<option value="${s}" ${S.attendanceStatus===s?'selected':''}>${s}</option>`).join('')}
+      </select>
+      <label>備註</label><input id="attendanceNote" placeholder="例如：事假、病假、遲到 10 分鐘">
+      <button class="btn full" id="saveAttendance" type="button">儲存出缺席紀錄</button>
+    </div>
+    <div>
+      <div class="notice"><b>${esc(selectedDate)} 出席統計</b><br>
+      出席 ${countStatus('出席')} 人｜遲到 ${countStatus('遲到')} 人｜請假 ${countStatus('請假')} 人｜缺席 ${countStatus('缺席')} 人<br>
+      本日出席率：${rate}%</div>
+      <div style="margin-top:12px">${records.length?records.map(r=>`<div class="listItem"><div class="grow"><b>${esc(r.memberName||'未命名')}</b><p>${esc(r.teamName||'')}｜${esc(r.status||'出席')}${r.note?'｜'+esc(r.note):''}</p></div><button class="btn small danger" data-del-att="${r.id}">刪除</button></div>`).join(''):'<div class="empty">這一天尚無紀錄</div>'}</div>
+    </div>
+  </div>
+  <h2 style="margin-top:20px">📊 個人累計出席率</h2>
+  ${memberRates.length?memberRates.map(x=>`<div class="rankItem"><div class="grow"><b>${esc(x.name)}</b><small>${esc(x.team||'')}｜出席 ${x.attended}/${x.total}</small></div><span>${x.rate}%</span></div>`).join(''):'<div class="empty">尚無出席率資料</div>'}`;
+}
+
+async function saveAttendance(){
+  const date=$('#attendanceDate')?.value||'';
+  const memberId=$('#attendanceMember')?.value||'';
+  const status=$('#attendanceStatus')?.value||'出席';
+  const note=$('#attendanceNote')?.value||'';
+  const member=S.members.find(m=>m.id===memberId);
+  if(!date)return toast('請選擇日期');
+  if(!member)return toast('請選擇姓名');
+  try{
+    const same=S.attendance.find(a=>a.date===date&&a.memberId===memberId);
+    const data={date,memberId,memberName:member.name,teamId:member.teamId||'',teamName:member.teamName||teamName(member.teamId),status,note,source:'手動登記'};
+    await saveCollectionRecord('attendance',same?.id||null,data);
+    S.attendanceDate=date;S.attendanceMember=memberId;S.attendanceStatus=status;
+    toast(same?'出缺席紀錄已更新':'出缺席紀錄已儲存');
+  }catch(e){console.error(e);toast(`出席紀錄儲存失敗：${e?.message||e}`)}
+}
+async function deleteAttendance(id){
+  if(!confirm('確認刪除這筆出缺席紀錄？'))return;
+  try{await deleteDoc(doc(db,'attendance',id));toast('出缺席紀錄已刪除')}catch(e){toast(`刪除失敗：${e?.message||e}`)}
+}
+
+async function editScore(id){const r=S.scores.find(x=>x.id===id); if(!r)return; S.editScoreId=id; render();}
+async function saveEditScore(){
+  const id=S.editScoreId; if(!id)return;
+  const r=S.scores.find(x=>x.id===id); if(!r)return;
+  const val=$('#editScoreTotal')?.value; const note=$('#editScoreNote')?.value||'';
+  if(val===null||val===''){toast('請輸入分數');return;}
+  await updateDoc(doc(db,'score_history',id),{total:Number(val),note,updatedAt:serverTimestamp(),updatedBy:currentUser?.uid||'anonymous'});
+  S.editScoreId=null; render(); toast('已修改');
+}
+async function delScore(id){if(!confirm('確認刪除此筆積分紀錄？'))return; await updateDoc(doc(db,'score_history',id),{deleted:true,updatedAt:serverTimestamp(),updatedBy:currentUser?.uid||'anonymous'}); toast('已刪除')}
+
+function qr(){return `<div class="grid" style="margin-top:14px"><div class="card"><h2>📱 建立 QR 活動</h2><label>活動類型</label><select id="eventType"><option value="meeting">每週三例會（不加分）</option><option value="dream">夢想起飛</option><option value="cop">夜間 COP</option><option value="soft">軟性活動</option></select><label>日期</label><input id="eventDate" type="date" value="${new Date().toISOString().slice(0,10)}"><label>地點</label><input id="eventPlace" placeholder="例如：南山干城大樓9樓"><button class="btn full" id="createEvent" type="button">建立 QR</button></div><div class="card"><h2>活動列表</h2>${S.events.length?S.events.sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0)).map(e=>{const url=location.origin+location.pathname+`?checkin=${e.id}`;return `<div class="listItem"><div class="grow"><b>${typeName(e.type)}</b><p>${esc(e.date)}｜${esc(e.place||'')}</p><p><a href="${url}" target="_blank">開啟簽到頁</a></p><img alt="QR" style="width:110px;height:110px;border-radius:12px" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(url)}"></div><button class="btn small danger" data-del-event="${e.id}">刪除</button></div>`}).join(''):'<div class="empty">尚無活動</div>'}</div><div class="card"><h2>簽到紀錄</h2>${S.checkins.length?S.checkins.sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0)).slice(0,30).map(c=>`<div class="listItem"><div class="grow"><b>${esc(c.name||c.memberName)}</b><p>${esc(typeName(c.eventType))}｜${c.isFriend?'新朋友：'+esc(c.phone||''):'夥伴'}｜${fmtDate(c.createdAt)}</p></div></div>`).join(''):'<div class="empty">尚無簽到紀錄</div>'}</div></div>`}
+function typeName(t){return {meeting:'每週三例會',dream:'夢想起飛',cop:'夜間 COP',soft:'軟性活動'}[t]||t}
+async function createEvent(){await addDoc(col('events'),{type:$('#eventType').value,date:$('#eventDate').value,place:$('#eventPlace').value,createdAt:serverTimestamp()});toast('已建立活動')}
+function checkinPage(id){const e=S.events.find(x=>x.id===id); if(!e)return `<div class="app"><div class="card"><h2>活動不存在</h2></div></div>`; const teams=S.teams;return `<div class="card" style="margin-top:14px"><h2>AMR｜${typeName(e.type)}</h2><p>${esc(e.date)}｜${esc(e.place||'')}</p><label>身分</label><select id="ckKind"><option value="member">夥伴</option>${e.type!=='meeting'?'<option value="friend">新朋友</option>':''}</select><div id="memberFields"><label>隊伍</label><select id="ckTeam"><option value="">請選隊伍</option>${teams.map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join('')}</select><label>姓名</label><select id="ckMember"><option value="">請先選隊伍</option></select></div><div id="friendFields" class="hidden"><label>新朋友姓名</label><input id="friendName"><label>電話</label><input id="friendPhone"><label>介紹人</label><input id="referrer"></div><button class="btn full" id="submitCheckin" data-eid="${e.id}" type="button">完成簽到</button></div>`}
+async function submitCheckin(eid){const e=S.events.find(x=>x.id===eid); const kind=$('#ckKind').value; if(kind==='member'){const mid=$('#ckMember').value; const m=S.members.find(x=>x.id===mid); if(!m)return toast('請選姓名'); await addDoc(col(e.type==='meeting'?'attendance':'checkins'),{eventId:eid,eventType:e.type,memberId:m.id,memberName:m.name,teamId:m.teamId,teamName:m.teamName||teamName(m.teamId),status:'出席',isFriend:false,createdAt:serverTimestamp()}); if(e.type!=='meeting') await addDoc(col('score_history'),{mode:'personal',teamId:m.teamId,teamName:m.teamName||teamName(m.teamId),memberId:m.id,memberName:m.name,items:[{label:typeName(e.type)+'出席',count:1,points:2,score:2}],total:2,source:'QR自動加分',deleted:false,createdAt:serverTimestamp()}); } else {const name=$('#friendName').value.trim(); if(!name)return toast('請輸入新朋友姓名'); await addDoc(col('checkins'),{eventId:eid,eventType:e.type,name,phone:$('#friendPhone').value,referrer:$('#referrer').value,isFriend:true,createdAt:serverTimestamp()}); }
+ toast('簽到完成');}
+
+function readImageSlots(x){const arr=Array.from({length:6},(_,i)=>String(x?.[`contentImage${i+1}`]||'').trim());if(arr.some(Boolean))return arr;const old=Array.isArray(x?.contentImages)?x.contentImages.flat(Infinity).filter(v=>typeof v==='string').slice(0,6):[];while(old.length<6)old.push('');return old;}
+function slotPatch(imgs){const out={contentImages:imgs.slice(0,6)};for(let i=0;i<6;i++)out[`contentImage${i+1}`]=imgs[i]||'';return out;}
+function firestoreImageDocId(ownerType,ownerId,slot){return `${ownerType}_${ownerId}_${Number(slot)+1}`.replace(/[^a-zA-Z0-9_-]/g,'_')}
+function firestoreImageFor(ownerType,ownerId,slot){return (S.portalImages||[]).find(x=>x.ownerType===ownerType&&x.ownerId===ownerId&&Number(x.slot)===Number(slot)&&x.deleted!==true)?.data||''}
+function readManagedImageSlots(ownerType,ownerId,fallback){const old=readImageSlots(fallback||{});if(!ownerId)return old;return Array.from({length:6},(_,i)=>firestoreImageFor(ownerType,ownerId,i)||old[i]||'')}
+async function saveFirestorePortalImage(ownerType,ownerId,slot,file){
+  if(!ownerId)throw new Error('找不到內容 ID，請先儲存標題');
+  const data=await compressImageFile(file,1000,430000);
+  if(data.length>650000)throw new Error('圖片壓縮後仍太大，請換較小圖片');
+  const id=firestoreImageDocId(ownerType,ownerId,slot);
+  const payload={ownerType,ownerId,slot:Number(slot),data,mime:'image/jpeg',deleted:false,updatedAt:serverTimestamp(),updatedBy:currentUser?.uid||'anonymous'};
+  await setDoc(doc(db,'portal_images',id),payload,{merge:true});
+  const verify=await getDoc(doc(db,'portal_images',id));
+  if(!verify.exists()||!verify.data().data)throw new Error('圖片寫入 Firestore 後驗證失敗');
+  const local={id,...verify.data()};const idx=(S.portalImages||[]).findIndex(x=>x.id===id);if(idx>=0)S.portalImages[idx]=local;else S.portalImages.push(local);
+  return data;
+}
+async function removeFirestorePortalImage(ownerType,ownerId,slot){if(!ownerId)return;const id=firestoreImageDocId(ownerType,ownerId,slot);await deleteDoc(doc(db,'portal_images',id));S.portalImages=(S.portalImages||[]).filter(x=>x.id!==id)}
+function entryImg(x){const ownerType=x?.portalId?'entry':'portal';const first=readManagedImageSlots(ownerType,x?.id,x).find(Boolean)||'';return x?.coverImage||x?.image||x?.imageUrl||first||''}
+function portalEntriesFor(portalId){return (S.portalEntries||[]).filter(x=>x.portalId===portalId&&x.visible!==false).sort((a,b)=>Number(a.order||99)-Number(b.order||99))}
+function hasLegacyPortalContent(p){return !!(p&&(p.content||p.description||p.date||p.place||p.url||p.pdfUrl||p.youtubeUrl||(Array.isArray(p.contentImages)&&p.contentImages.length)))}
+function portal(){
+  const base=S.portals.length?S.portals:defaultPortals.map((p,i)=>({id:'d'+i,...p}));
+  const items=uniquePortalItems(base).filter(p=>p.visible!==false);
+  if(S.selectedPortal){
+    const p=items.find(x=>x.id===S.selectedPortal)||S.portals.find(x=>x.id===S.selectedPortal);
+    if(S.selectedPortalEntry){const e=S.portalEntries.find(x=>x.id===S.selectedPortalEntry);return portalContentDetail(e,p)}
+    return portalSection(p);
+  }
+  return `<div class="card" style="margin-top:14px"><h2>⭐ Portal</h2><div class="portalGrid">${items.map(p=>{const img=portalImg(p);return `<a href="#" class="portalCard" data-open-portal="${p.id}">${img?`<img src="${img}" alt="${esc(p.title)}">`:''}<div class="pcText"><b>${esc(p.icon||'⭐')} ${esc(p.title)}</b><em>${esc(p.subtitle||'')}</em></div></a>`}).join('')}</div></div>`
+}
+function portalSection(p){
+  if(!p)return `<div class="card"><button class="btn secondary" data-go="portal">← 返回人力資訊</button><div class="empty">找不到專區</div></div>`;
+  const entries=portalEntriesFor(p.id);
+  const legacy=hasLegacyPortalContent(p);
+  if(!entries.length&&legacy)return portalContentDetail(p,p,true);
+  return `<div class="card" style="margin-top:14px"><button class="btn secondary" data-go="portal">← 返回人力資訊</button><h2 style="margin-top:14px">${esc(p.icon||'⭐')} ${esc(p.title)}</h2><p>${esc(p.subtitle||'')}</p>${entries.length?`<div class="portalEntryGrid">${entries.map(e=>{const img=entryImg(e);return `<a href="#" class="portalEntryCard" data-open-entry="${e.id}">${img?`<img src="${img}" alt="${esc(e.title)}">`:'<div style="aspect-ratio:16/9;background:linear-gradient(135deg,#dff2ff,#b9dcff)"></div>'}<div class="entryBody"><span class="entryBadge">${esc(entryTypeName(e.type))}</span><h3>${esc(e.title)}</h3><p>${esc(e.subtitle||e.date||'')}</p></div></a>`}).join('')}</div>`:'<div class="empty">此專區尚未新增內容</div>'}${legacy?`<div class="notice" style="margin-top:16px">原本的單頁資料仍保留，可由管理中心轉成第一篇內容。</div>`:''}</div>`
+}
+function entryTypeName(t){return {activity:'圖文活動',pdf:'PDF 文件',link:'外部連結',youtube:'YouTube',article:'圖文內容'}[t]||'圖文內容'}
+function portalContentDetail(item,portal,legacy=false){
+  if(!item)return portalSection(portal);
+  const cover=entryImg(item);
+  const ownerType=legacy?'portal':(item?.portalId?'entry':'portal');const savedInner=readManagedImageSlots(ownerType,item?.id,item).filter(Boolean);const inner=savedInner.length?savedInner:(cover?[cover]:[]);
+  const gallery=inner.length?`<div class="portalGallery">${inner.map((src,i)=>`<img src="${src}" alt="${esc(item.title)} 圖片 ${i+1}">`).join('')}</div>`:'';
+  const date=item.date||item.time||item.eventDate||'';
+  const place=item.place||item.location||item.eventPlace||'';
+  const external=safeUrl(item.url||item.link||item.registrationUrl||'');
+  const pdf=safeUrl(item.pdfUrl||item.pdf||'');
+  const youtube=safeUrl(item.youtubeUrl||item.youtube||'');
+  let actions=[];
+  if(external) actions.push(`<a class="btn full" href="${esc(external)}" target="_blank" rel="noopener">${esc(item.buttonText||'立即前往')}</a>`);
+  if(pdf) actions.push(`<a class="btn full secondary" href="${esc(pdf)}" target="_blank" rel="noopener">📄 ${esc(item.pdfName?`開啟 ${item.pdfName}`:'開啟 PDF')}</a>`);
+  if(youtube) actions.push(`<a class="btn full secondary" href="${esc(youtube)}" target="_blank" rel="noopener">▶️ 開啟 YouTube</a>`);
+  const back=legacy?'portal':null;
+  return `<div class="card" style="margin-top:14px"><button class="btn secondary" ${legacy?'data-go="portal"':'data-back-section="1"'}>← 返回${legacy?' Portal':'專區'}</button>${gallery}<h2>${esc(item.icon||portal?.icon||'⭐')} ${esc(item.title)}</h2><p>${esc(item.subtitle||'')}</p><div style="white-space:pre-wrap;line-height:1.8">${esc(item.content||item.description||'')}</div>${date||place?`<div class="notice" style="margin:12px 0">${date?`時間：${esc(date)}<br>`:''}${place?`地點：${esc(place)}`:''}</div>`:''}${actions.length?`<div style="display:grid;gap:10px;margin-top:14px">${actions.join('')}</div>`:''}</div>`
+}
+function admin(){const tabs=[['settings','🏠 首頁設定'],['ann','📢 公告'],['teams','👥 隊伍'],['members','👤 人員'],['portal','⭐ 人力資訊'],['rules','🧮 積分項目'],['hsc','🏅 人超盃'],['theme','🎨 主題'],['data','📥 資料匯入']];return `<div class="adminLayout" style="margin-top:14px"><div class="card adminMenu"><h2>⚙️ 管理中心</h2>${tabs.map(([id,tx])=>`<button class="btn ${S.adminTab===id?'':'secondary'} full" style="margin:6px 0" data-admintab="${id}" type="button">${tx}</button>`).join('')}<div class="notice" style="margin-top:10px">☁️ Firebase 狀態：已連線</div></div><div class="card">${adminContent()}</div></div>`}
+function adminContent(){if(S.adminTab==='settings')return settingsForm(); if(S.adminTab==='ann')return crudAnnouncements(); if(S.adminTab==='teams')return crudTeams(); if(S.adminTab==='members')return crudMembers(); if(S.adminTab==='portal')return crudPortal(); if(S.adminTab==='rules')return scoreRuleManager(); if(S.adminTab==='hsc')return humanSuperCupManager(); if(S.adminTab==='theme')return themeCenter(); if(S.adminTab==='data')return dataImport();}
+function settingsForm(){return `<h2>🏠 首頁設定</h2><label>主標題</label><input id="setMain" value="${esc(S.settings.mainTitle)}"><label>副標題</label><input id="setSub" value="${esc(S.settings.subTitle)}"><label>標語</label><input id="setSlogan" value="${esc(S.settings.slogan)}"><label>Banner 圖片網址</label><input id="setBanner" value="${esc(S.settings.bannerImage)}"><label>標題大小</label><input id="setTitleSize" type="number" value="${S.settings.titleSize||32}"><label>內文字大小</label><input id="setBodySize" type="number" value="${S.settings.bodySize||16}"><button class="btn full" id="saveSettings" type="button">儲存首頁設定</button>`}
+async function saveSettings(){try{const patch={mainTitle:$('#setMain').value,subTitle:$('#setSub').value,slogan:$('#setSlogan').value,bannerImage:$('#setBanner').value,titleSize:Number($('#setTitleSize').value||32),bodySize:Number($('#setBodySize').value||16)};toast('正在儲存首頁設定…');await writeSettingsPatch(patch,'首頁設定已儲存')}catch(e){console.error(e);toast(`首頁設定儲存失敗：${e?.message||e}`)}}
+function crudAnnouncements(){return `<h2>📢 公告管理</h2><div class="split"><div><h3>公告列表</h3>${S.announcements.length?S.announcements.map(a=>`<div class="listItem"><div class="grow"><b>${esc(a.title)}</b><p>${a.visible===false?'隱藏':'顯示'}｜${fmtDate(a.createdAt)}</p></div><button class="btn small secondary" data-load-ann="${a.id}">編輯</button><button class="btn small danger" data-del-ann="${a.id}">刪除</button></div>`).join(''):'<div class="empty">尚無公告</div>'}</div><div><h3>${S.edit?.type==='ann'?'編輯':'新增'}公告</h3><label>標題</label><input id="annTitle" value="${esc(S.edit?.data?.title||'')}"><label>內容</label><textarea id="annContent">${esc(S.edit?.data?.content||'')}</textarea><label><input id="annVisible" type="checkbox" ${S.edit?.data?.visible===false?'':'checked'} style="width:auto;min-height:auto"> 顯示</label><button class="btn full" id="saveAnn" type="button">儲存公告</button><button class="btn secondary full" id="newAnn" type="button" style="margin-top:8px">清空新增</button></div></div>`}
+async function saveCollectionRecord(collectionName,id,data){
+  const ref=id?doc(db,collectionName,id):doc(col(collectionName));
+  await setDoc(ref,{...data,updatedAt:serverTimestamp(),...(id?{}:{createdAt:serverTimestamp()})},{merge:!!id});
+  const verify=await getDoc(ref);if(!verify.exists())throw new Error('儲存後找不到資料');return ref.id;
+}
+async function saveAnn(){try{const data={title:$('#annTitle').value.trim(),content:$('#annContent').value,visible:$('#annVisible').checked};if(!data.title)return toast('請輸入公告標題');toast('正在儲存公告…');await saveCollectionRecord('announcements',S.edit?.type==='ann'?S.edit.id:null,data);S.edit=null;render();toast('公告已儲存')}catch(e){console.error(e);toast(`公告儲存失敗：${e?.message||e}`)}}
+function crudTeams(){return `<h2>👥 隊伍管理</h2><div class="split"><div>${S.teams.map(t=>`<div class="listItem"><div class="grow"><b>${esc(t.name)}</b><p>${esc(t.note||'')}</p></div><button class="btn small secondary" data-load-team="${t.id}">編輯</button><button class="btn small danger" data-del-team="${t.id}">刪除</button></div>`).join('')||'<div class="empty">尚無隊伍</div>'}</div><div><label>隊伍名稱</label><input id="teamName" value="${esc(S.edit?.type==='team'?S.edit.data.name:'')}"><label>備註</label><input id="teamNote" value="${esc(S.edit?.type==='team'?S.edit.data.note||'':'')}"><button class="btn full" id="saveTeam" type="button">儲存隊伍</button><button class="btn secondary full" id="newTeam" type="button" style="margin-top:8px">清空新增</button></div></div>`}
+async function saveTeam(){try{const data={name:$('#teamName').value.trim(),note:$('#teamNote').value};if(!data.name)return toast('請輸入隊名');toast('正在儲存隊伍…');await saveCollectionRecord('teams',S.edit?.type==='team'?S.edit.id:null,data);S.edit=null;render();toast('隊伍已儲存')}catch(e){console.error(e);toast(`隊伍儲存失敗：${e?.message||e}`)}}
+function crudMembers(){return `<h2>👤 人員管理</h2><div class="split"><div>${S.members.map(m=>`<div class="listItem"><div class="grow"><b>${esc(m.name)}</b><p>${esc(m.teamName||teamName(m.teamId)||'未分隊')}｜${esc(m.role||'')}</p></div><button class="btn small secondary" data-load-member="${m.id}">編輯</button><button class="btn small danger" data-del-member="${m.id}">刪除</button></div>`).join('')||'<div class="empty">尚無人員</div>'}</div><div><label>姓名</label><input id="memName" value="${esc(S.edit?.type==='member'?S.edit.data.name:'')}"><label>隊伍</label><select id="memTeam"><option value="">請選擇</option>${S.teams.map(t=>`<option value="${t.id}" ${S.edit?.type==='member'&&S.edit.data.teamId===t.id?'selected':''}>${esc(t.name)}</option>`).join('')}</select><label>職級/備註</label><input id="memRole" value="${esc(S.edit?.type==='member'?S.edit.data.role||'':'')}"><label>電話</label><input id="memPhone" value="${esc(S.edit?.type==='member'?S.edit.data.phone||'':'')}"><button class="btn full" id="saveMember" type="button">儲存人員</button><button class="btn secondary full" id="newMember" type="button" style="margin-top:8px">清空新增</button></div></div>`}
+async function saveMember(){try{const tid=$('#memTeam').value;const data={name:$('#memName').value.trim(),teamId:tid,teamName:teamName(tid),role:$('#memRole').value,phone:$('#memPhone').value};if(!data.name)return toast('請輸入姓名');toast('正在儲存人員…');await saveCollectionRecord('members',S.edit?.type==='member'?S.edit.id:null,data);S.edit=null;render();toast('人員已儲存')}catch(e){console.error(e);toast(`人員儲存失敗：${e?.message||e}`)}}
+function portalDraftImages(d){if(S.edit?.type==='portal')return readManagedImageSlots('portal',S.edit.id,S.edit.data||d||{});if(Array.isArray(S.portalDraftImages)&&S.portalDraftImages.length)return S.portalDraftImages;return readImageSlots(d||S.portalDraftForm||{});}
+function crudPortal(){
+  const d=S.edit?.type==='portal'?S.edit.data:(S.portalDraftForm||{});
+  const inner=portalDraftImages(d);
+  const ordered=uniquePortalItems(S.portals).slice(0,6);
+  const bulkNames=['人力超級盃','夢想起飛＆夜間 COP','臨時帳號建立','優培制度','委任制度','考照大補帖'];
+  const bulkPreview=(S.bulkPortalImages||[]).map((src,i)=>`<figure><img src="${src}"><figcaption>${i+1}. ${esc(ordered[i]?.title||bulkNames[i]||'')}</figcaption></figure>`).join('');
+  return `<h2>⭐ 人力資訊管理</h2>
+  <div class="notice"><b>一次設定六張封面</b><br>請依順序選擇 6 張圖片：人力超級盃 → 夢想起飛＆夜間 COP → 臨時帳號建立 → 優培制度 → 委任制度 → 考照大補帖。</div>
+  <label>一次選擇六張圖片</label><input type="file" id="bulkPortalFiles" accept="image/*" multiple>
+  ${bulkPreview?`<div class="bulkPreview">${bulkPreview}</div><button class="btn full" id="applyBulkPortal" type="button">依順序套用並儲存六張封面</button>`:'<p class="fileNote">選取後會先顯示預覽，確認順序再儲存。</p>'}
+  <hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+  <div class="split"><div>${S.portals.sort((a,b)=>(a.order||99)-(b.order||99)).map(p=>`<div class="listItem"><div class="grow"><b>${esc(p.title)}</b><p>${p.visible===false?'隱藏':'顯示'}｜排序 ${p.order||''}｜${esc(p.type||'')}</p></div><button class="btn small secondary" data-load-portal="${p.id}">編輯</button><button class="btn small danger" data-del-portal="${p.id}">刪除</button></div>`).join('')||'<div class="empty">尚無人力資訊</div>'}</div><div>
+  <label>類型</label><select id="portalType"><option value="activity" ${d.type==='activity'?'selected':''}>圖文活動</option><option value="pdf" ${d.type==='pdf'?'selected':''}>PDF 文件</option><option value="link" ${d.type==='link'?'selected':''}>外部連結</option><option value="youtube" ${d.type==='youtube'?'selected':''}>YouTube</option></select>
+  <label>標題</label><input id="portalTitle" value="${esc(d.title||'')}"><label>副標題</label><input id="portalSub" value="${esc(d.subtitle||'')}"><label>Icon</label><input id="portalIcon" value="${esc(d.icon||'⭐')}">
+  <label>六宮格封面圖片</label><input id="portalImage" value="${esc(portalImg(d))}"><div class="fileNote">這張圖會顯示在 人力資訊方框。可貼圖片網址，或由下方選擇檔案。</div>${portalImg(d)?`<img src="${portalImg(d)}" style="width:100%;border-radius:16px;margin:8px 0;max-height:220px;object-fit:contain;background:white">`:''}<input type="file" id="portalImageFile" accept="image/*">
+  <label>人力資訊內頁圖片（第 1～6 張，逐張上傳）</label><div class="notice">每個位置一次選一張。既有 Portal 會在上傳成功後立即寫入 Firebase。</div><div class="bulkPreview">${Array.from({length:6},(_,i)=>{const src=inner[i]||'';return `<figure>${src?`<img src="${src}">`:`<div style="aspect-ratio:16/9;border:1px dashed var(--line);border-radius:14px;display:grid;place-items:center;color:var(--muted)">圖片 ${i+1}</div>`}<figcaption>第 ${i+1} 張</figcaption><input type="file" data-portal-image-slot="${i}" accept="image/*">${src?`<button type="button" class="btn small danger full" data-remove-portal-slot="${i}">移除</button>`:''}</figure>`}).join('')}</div>
+  <label>貼文內容</label><textarea id="portalContent" placeholder="可貼完整活動說明、段落與換行">${esc(d.content||'')}</textarea>
+  <div class="formRow"><div><label>時間</label><input id="portalDate" value="${esc(d.date||d.time||d.eventDate||'')}" placeholder="例如：7/17（五）18:30～20:30"></div><div><label>地點</label><input id="portalPlace" value="${esc(d.place||d.location||d.eventPlace||'')}" placeholder="例如：南山干城大樓 9 樓"></div></div>
+  <label>報名／外部連結</label><input id="portalUrl" value="${esc(d.url||'')}" placeholder="https://..."><label>按鈕文字</label><input id="portalButtonText" value="${esc(d.buttonText||'')}" placeholder="例如：立即報名">
+  <label>PDF 檔案</label><div class="fileNote">可直接選擇 PDF 上傳，不需要先取得網址。上傳完成後會自動填入並儲存連結。</div><input type="file" id="portalPdfFile" accept="application/pdf">${d.pdfUrl?`<div class="notice" style="margin-top:8px">目前 PDF：${esc(d.pdfName||'已上傳檔案')}<br><a href="${esc(d.pdfUrl)}" target="_blank" rel="noopener">開啟確認</a></div>`:''}<input id="portalPdf" type="hidden" value="${esc(d.pdfUrl||'')}"><input id="portalPdfName" type="hidden" value="${esc(d.pdfName||'')}"><label>YouTube 網址</label><input id="portalYoutube" value="${esc(d.youtubeUrl||'')}">
+  <div class="formRow"><div><label>排序</label><input id="portalOrder" type="number" value="${d.order||1}"></div><div><label>顯示</label><select id="portalVisible"><option value="true" ${d.visible===false?'':'selected'}>顯示</option><option value="false" ${d.visible===false?'selected':''}>隱藏</option></select></div></div>
+  <button class="btn full" id="savePortal" type="button">儲存人力資訊</button><button class="btn secondary full" id="newPortal" type="button" style="margin-top:8px">清空新增</button></div></div>
+  ${S.edit?.type==='portal'?portalEntryManager(S.edit.id):'<div class="notice" style="margin-top:16px">請先選擇左側人力資訊 並按「編輯」，即可管理該分類內的多篇活動、公文與內容。</div>'}`
+}
+async function savePortal(){
+  const d=S.edit?.type==='portal'?S.edit.data:(S.portalDraftForm||{});
+  const title=$('#portalTitle').value.trim();if(!title)return toast('請輸入標題');
+  try{
+    toast('正在儲存人力資訊…');
+    const coverImage=$('#portalImage').value||portalImg(d)||'';
+    const data={type:$('#portalType').value,title,subtitle:$('#portalSub').value,icon:$('#portalIcon').value,image:coverImage,coverImage,content:$('#portalContent').value,date:$('#portalDate').value,time:$('#portalDate').value,eventDate:$('#portalDate').value,place:$('#portalPlace').value,location:$('#portalPlace').value,eventPlace:$('#portalPlace').value,url:safeUrl($('#portalUrl').value),link:safeUrl($('#portalUrl').value),registrationUrl:safeUrl($('#portalUrl').value),buttonText:$('#portalButtonText').value,pdfUrl:$('#portalPdf').value,pdfName:$('#portalPdfName')?.value||d.pdfName||'',youtubeUrl:safeUrl($('#portalYoutube').value),order:Number($('#portalOrder').value||99),visible:$('#portalVisible').value==='true',updatedAt:serverTimestamp()};
+    let targetId=S.edit?.type==='portal'?S.edit.id:null;if(!targetId){const same=S.portals.find(p=>norm(p.title)===norm(data.title));if(same)targetId=same.id;}
+    const id=await saveCollectionRecord('portals',targetId,data);
+    S.edit={type:'portal',id,data:{id,...data}};render();toast('人力資訊已儲存');
+  }catch(e){console.error(e);toast(`人力資訊儲存失敗：${e?.message||e}`)}
+}
+async function applyBulkPortalImages(){
+  const imgs=S.bulkPortalImages||[];
+  if(imgs.length!==6)return toast('請一次選擇剛好 6 張圖片');
+  let items=uniquePortalItems(S.portals).slice(0,6);
+  if(items.length<6){toast('人力資訊項目不足 6 個，請稍後再試');return;}
+  for(let i=0;i<6;i++){
+    await updateDoc(doc(db,'portals',items[i].id),{image:imgs[i],coverImage:imgs[i],updatedAt:serverTimestamp()});
+  }
+  S.bulkPortalImages=[];toast('六張封面已依順序儲存');render();
+}
+function entryDraftImages(d){if(S.entryEdit)return readManagedImageSlots('entry',S.entryEdit.id,S.entryEdit.data||d||{});if(Array.isArray(S.entryDraftImages)&&S.entryDraftImages.length)return S.entryDraftImages;return readImageSlots(d||S.entryDraftForm||{});}
+function portalEntryManager(portalId){
+  const portal=S.portals.find(x=>x.id===portalId);
+  const entries=(S.portalEntries||[]).filter(x=>x.portalId===portalId).sort((a,b)=>Number(a.order||99)-Number(b.order||99));
+  const d=S.entryEdit?.data||(S.entryDraftForm||{});
+  const imgs=entryDraftImages(d);
+  return `<div class="entryAdmin"><h2>📚 ${esc(portal?.title||'Portal')}｜專區內容</h2><div class="notice">此專區可以新增多篇活動、公文、圖片貼文、外部連結或 YouTube。每篇內容彼此獨立，可單獨修改、隱藏或刪除。</div><div class="split" style="margin-top:14px"><div>${entries.map(e=>`<div class="listItem"><div class="grow"><b>${esc(e.title)}</b><p>${entryTypeName(e.type)}｜${e.visible===false?'隱藏':'顯示'}｜排序 ${e.order||''}</p></div><button class="btn small secondary" data-load-entry="${e.id}">編輯</button><button class="btn small danger" data-del-entry="${e.id}">刪除</button></div>`).join('')||'<div class="empty">尚無內容，請在右側新增第一篇。</div>'}</div><div><h3>${S.entryEdit?'編輯內容':'新增內容'}</h3><label>內容類型</label><select id="entryType"><option value="activity" ${d.type==='activity'?'selected':''}>圖文活動</option><option value="article" ${d.type==='article'?'selected':''}>圖文內容</option><option value="pdf" ${d.type==='pdf'?'selected':''}>PDF 文件</option><option value="link" ${d.type==='link'?'selected':''}>外部連結</option><option value="youtube" ${d.type==='youtube'?'selected':''}>YouTube</option></select><label>標題</label><input id="entryTitle" value="${esc(d.title||'')}"><label>副標題</label><input id="entrySub" value="${esc(d.subtitle||'')}"><label>封面圖片</label><input id="entryCover" value="${esc(entryImg(d))}">${entryImg(d)?`<img src="${entryImg(d)}" style="width:100%;border-radius:16px;margin:8px 0;max-height:220px;object-fit:contain;background:white">`:''}<input type="file" id="entryCoverFile" accept="image/*"><label>內頁圖片（第 1～6 張，逐張上傳）</label><div class="notice">先輸入標題，再從圖片 1 開始一張一張選。每張上傳成功後會立即自動儲存。</div><div class="bulkPreview">${Array.from({length:6},(_,i)=>{const src=imgs[i]||'';return `<figure>${src?`<img src="${src}">`:`<div style="aspect-ratio:16/9;border:1px dashed var(--line);border-radius:14px;display:grid;place-items:center;color:var(--muted)">圖片 ${i+1}</div>`}<figcaption>第 ${i+1} 張</figcaption><input type="file" data-entry-image-slot="${i}" accept="image/*">${src?`<button type="button" class="btn small danger full" data-remove-entry-slot="${i}">移除</button>`:''}</figure>`}).join('')}</div><label>貼文內容</label><textarea id="entryContent">${esc(d.content||'')}</textarea><div class="formRow"><div><label>時間</label><input id="entryDate" value="${esc(d.date||'')}"></div><div><label>地點</label><input id="entryPlace" value="${esc(d.place||'')}"></div></div><label>報名／外部連結</label><input id="entryUrl" value="${esc(d.url||'')}"><label>按鈕文字</label><input id="entryButton" value="${esc(d.buttonText||'')}"><label>PDF 檔案</label><input type="file" id="entryPdfFile" accept="application/pdf">${d.pdfUrl?`<div class="notice" style="margin-top:8px">目前 PDF：${esc(d.pdfName||'已上傳檔案')}<br><a href="${esc(d.pdfUrl)}" target="_blank">開啟確認</a></div>`:''}<input id="entryPdfUrl" type="hidden" value="${esc(d.pdfUrl||'')}"><input id="entryPdfName" type="hidden" value="${esc(d.pdfName||'')}"><label>YouTube 網址</label><input id="entryYoutube" value="${esc(d.youtubeUrl||'')}"><div class="formRow"><div><label>排序</label><input id="entryOrder" type="number" value="${Number(d.order||entries.length+1)}"></div><div><label>顯示</label><select id="entryVisible"><option value="true" ${d.visible===false?'':'selected'}>顯示</option><option value="false" ${d.visible===false?'selected':''}>隱藏</option></select></div></div><button class="btn full" id="saveEntry" type="button">儲存專區內容</button><button class="btn secondary full" id="newEntry" type="button" style="margin-top:8px">清空新增下一篇</button></div></div></div>`
+}
+
+function snapshotEntryForm(){
+  const get=(id,fb='')=>document.querySelector(id)?.value ?? fb;
+  return {type:get('#entryType','activity'),title:get('#entryTitle',''),subtitle:get('#entrySub',''),coverImage:get('#entryCover',''),image:get('#entryCover',''),content:get('#entryContent',''),date:get('#entryDate',''),place:get('#entryPlace',''),url:get('#entryUrl',''),buttonText:get('#entryButton',''),pdfUrl:get('#entryPdfUrl',''),pdfName:get('#entryPdfName',''),youtubeUrl:get('#entryYoutube',''),order:Number(get('#entryOrder','1')||1),visible:get('#entryVisible','true')==='true'};
+}
+async function savePortalEntry(){
+  if(!S.edit?.id)return toast('請先選擇 Portal');
+  const title=$('#entryTitle').value.trim();if(!title)return toast('請輸入內容標題');
+  try{
+    toast('正在儲存專區內容…');
+    const coverImage=$('#entryCover').value||entryImg(S.entryEdit?.data||{})||'';
+    const data={portalId:S.edit.id,portalTitle:S.edit.data.title,type:$('#entryType').value,title,subtitle:$('#entrySub').value,coverImage,image:coverImage,content:$('#entryContent').value,date:$('#entryDate').value,place:$('#entryPlace').value,url:safeUrl($('#entryUrl').value),buttonText:$('#entryButton').value,pdfUrl:$('#entryPdfUrl').value,pdfName:$('#entryPdfName').value,youtubeUrl:safeUrl($('#entryYoutube').value),order:Number($('#entryOrder').value||99),visible:$('#entryVisible').value==='true',updatedAt:serverTimestamp()};
+    const id=await saveCollectionRecord('portal_entries',S.entryEdit?.id||null,data);
+    S.entryEdit={id,data:{id,...data}};S.entryDraftImages=[];S.entryDraftForm=null;render();toast('專區內容已儲存');
+  }catch(e){console.error(e);toast(`內容儲存失敗：${e?.message||e}`)}
+}
+async function handleEntryCover(input){
+  const f=input.files?.[0];if(!f)return;
+  const form=snapshotEntryForm();
+  try{toast('封面圖片上傳中…');const url=await uploadCompressedImageFile(f,'portal-entry-images/covers',1600,700000);if(S.entryEdit)S.entryEdit.data={...S.entryEdit.data,...form,coverImage:url,image:url};else S.entryDraftForm={...(S.entryDraftForm||{}),...form,coverImage:url,image:url};render();toast('封面已上傳，請按儲存專區內容')}catch(e){toast(`封面上傳失敗：${e?.message||e}`)}finally{input.value=''}
+}
+async function handleEntryImageSlot(input,slot){
+  const file=input.files?.[0];if(!file)return;const form=snapshotEntryForm();if(!String(form.title||'').trim()){toast('請先輸入內容標題，再上傳圖片');input.value='';return;}input.disabled=true;
+  try{
+    let entryId=S.entryEdit?.id||null;
+    if(!entryId){entryId=await saveCollectionRecord('portal_entries',null,{portalId:S.edit.id,portalTitle:S.edit.data.title,...form,updatedAt:serverTimestamp()});const fresh=await getDoc(doc(db,'portal_entries',entryId));S.entryEdit={id:entryId,data:{id:entryId,...fresh.data()}};S.entryDraftForm=null;}
+    toast(`正在儲存第 ${slot+1} 張圖片…`);await saveFirestorePortalImage('entry',entryId,slot,file);render();toast(`第 ${slot+1} 張圖片已儲存，可立即預覽與移除`);
+  }catch(e){console.error(e);toast(`圖片儲存失敗：${e?.message||e}`)}finally{input.disabled=false;input.value=''}
+}
+async function removeEntryImageSlot(slot){try{if(!S.entryEdit?.id)return toast('這張圖片尚未正式儲存');await removeFirestorePortalImage('entry',S.entryEdit.id,slot);render();toast(`已移除第 ${slot+1} 張圖片`)}catch(e){console.error(e);toast(`移除失敗：${e?.message||e}`)}}
+async function handleEntryPdf(input){
+  const file=input.files?.[0];if(!file)return;
+  const form=snapshotEntryForm();
+  try{toast('PDF 上傳中…');const safeName=file.name.replace(/[^a-zA-Z0-9._\-\u4e00-\u9fff]/g,'_');const path=`portal-entry-pdfs/${Date.now()}-${safeName}`;const snap=await uploadBytes(storageRef(storage,path),file,{contentType:'application/pdf'});const url=await getDownloadURL(snap.ref);if(S.entryEdit)S.entryEdit.data={...S.entryEdit.data,...form,pdfUrl:url,pdfName:file.name};else S.entryDraftForm={...(S.entryDraftForm||{}),...form,pdfUrl:url,pdfName:file.name};render();toast('PDF 已上傳，請按儲存專區內容')}catch(e){toast(`PDF 上傳失敗：${e?.message||e}`)}finally{input.value=''}
+}
+
+function humanSuperCupManager(){
+  const rows=(S.humanSuperCup||[]).filter(x=>!x.deleted).sort((a,b)=>Number(b.score||0)-Number(a.score||0));
+  const deleted=(S.humanSuperCup||[]).filter(x=>x.deleted);
+  const d=S.hscEdit?.data||{};
+  return `<h2>🏅 人超盃管理</h2><div class="notice">人超盃是個人獨立分數，不選隊伍，也不會併入一般個人或團隊積分。</div><div class="split" style="margin-top:14px"><div><h3>人員分數</h3>${rows.map(x=>`<div class="listItem"><div class="grow"><b>${esc(x.memberName||'未命名')}</b><p>${Number(x.score||0)} 分${x.achieved?'｜✅ 已達成':''}${x.note?'｜'+esc(x.note):''}</p></div><button class="btn small secondary" data-load-hsc="${x.id}">編輯</button><button class="btn small danger" data-del-hsc="${x.id}">刪除</button></div>`).join('')||'<div class="empty">尚無人超盃分數</div>'}${deleted.length?`<h3 style="margin-top:18px">🗑️ 最近刪除</h3>${deleted.map(x=>`<div class="listItem"><div class="grow"><b>${esc(x.memberName||'未命名')}</b><p>${Number(x.score||0)} 分</p></div><button class="btn small ok" data-restore-hsc="${x.id}">復原</button></div>`).join('')}`:''}</div><div><h3>${S.hscEdit?'編輯':'新增'}人員分數</h3><label>人員姓名</label><select id="hscMember"><option value="">請選擇人員</option>${S.members.slice().sort((a,b)=>String(a.name||'').localeCompare(String(b.name||''),'zh-Hant')).map(m=>`<option value="${m.id}" ${d.memberId===m.id?'selected':''}>${esc(m.name)}</option>`).join('')}</select><label>人超盃分數</label><input id="hscScore" type="number" step="1" value="${Number(d.score||0)}"><label style="display:flex;align-items:center;gap:8px"><input id="hscAchieved" type="checkbox" ${d.achieved?'checked':''} style="width:auto;min-height:auto"> 已達成</label><label>備註</label><input id="hscNote" value="${esc(d.note||'')}"><button class="btn full" id="saveHsc" type="button">儲存人超盃分數</button><button class="btn secondary full" id="newHsc" type="button" style="margin-top:8px">清空新增</button></div></div>`;
+}
+async function saveHsc(){try{const memberId=$('#hscMember')?.value||'';const member=S.members.find(x=>x.id===memberId);if(!member)return toast('請選擇人員');const data={memberId,memberName:member.name,score:Number($('#hscScore')?.value||0),achieved:!!$('#hscAchieved')?.checked,note:$('#hscNote')?.value||'',deleted:false};let id=S.hscEdit?.id||null;if(!id){const same=(S.humanSuperCup||[]).find(x=>!x.deleted&&x.memberId===memberId);if(same)id=same.id;}toast('正在儲存人超盃分數…');await saveCollectionRecord('human_super_cup',id,data);S.hscEdit=null;render();toast('人超盃分數已儲存')}catch(e){console.error(e);toast(`人超盃儲存失敗：${e?.message||e}`)}}
+async function deleteHsc(id){if(!confirm('確認刪除這筆人超盃分數？之後仍可復原。'))return;try{await updateDoc(doc(db,'human_super_cup',id),{deleted:true,updatedAt:serverTimestamp()});S.hscEdit=null;toast('已移到最近刪除')}catch(e){toast(`刪除失敗：${e?.message||e}`)}}
+async function restoreHsc(id){try{await updateDoc(doc(db,'human_super_cup',id),{deleted:false,updatedAt:serverTimestamp()});toast('已復原人超盃分數')}catch(e){toast(`復原失敗：${e?.message||e}`)}}
+
+function scoreRuleManager(){
+  const mode=S.ruleMode||'personal';
+  const rules=activeScoreRules()[mode];
+  const d=S.ruleEdit||{};
+  return `<h2>🧮 積分項目管理</h2>
+  <div class="notice">可直接修改項目名稱與分數，也可以新增或刪除。儲存後，所有手機的計分頁會自動更新。</div>
+  <div class="tabs" style="margin-top:12px"><button class="tab ${mode==='personal'?'active':''}" data-rulemode="personal">👤 個人積分項目</button><button class="tab ${mode==='team'?'active':''}" data-rulemode="team">👥 團隊積分項目</button></div>
+  <div class="split"><div>${rules.map((r,i)=>`<div class="listItem"><div class="grow"><b>${esc(r[1])}</b><p>${Number(r[2]||0)} 分｜代碼 ${esc(r[0])}</p></div><button class="btn small secondary" data-edit-rule="${i}">編輯</button><button class="btn small danger" data-del-rule="${i}">刪除</button></div>`).join('')||'<div class="empty">尚無積分項目</div>'}
+  <div style="margin-top:16px"><h3>🗑️ 最近刪除</h3>${(S.settings.deletedScoreRules||[]).filter(x=>x.mode===mode).length?(S.settings.deletedScoreRules||[]).filter(x=>x.mode===mode).map((x,i)=>`<div class="listItem"><div class="grow"><b>${esc(Array.isArray(x.item)?x.item?.[1]:(x.item?.label||'未命名項目'))}</b><p>${Number(Array.isArray(x.item)?x.item?.[2]:(x.item?.points||0))} 分｜可復原</p></div><button class="btn small ok" data-restore-rule="${i}">復原</button></div>`).join(''):'<div class="empty">沒有可復原的項目</div>'}</div></div>
+  <div><h3>${d.index!=null?'編輯':'新增'}項目</h3><label>項目名稱</label><input id="ruleLabel" value="${esc(d.label||'')}"><label>每次分數</label><input id="rulePoints" type="number" step="1" value="${d.points??''}"><label>項目代碼</label><input id="ruleKey" value="${esc(d.key||'')}" placeholder="可留空自動產生"><button class="btn full" id="saveRule" type="button">儲存積分項目</button><button class="btn secondary full" id="newRule" type="button" style="margin-top:8px">清空新增</button>
+  <hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><h3>週數設定</h3><label>第一週開始日期</label><input id="ruleBaseStart" type="date" value="${esc(S.settings.baseStart||'2026-07-06')}"><label>競賽總週數</label><input id="ruleWeekCount" type="number" min="1" max="53" value="${Number(S.settings.weekCount||26)}"><button class="btn secondary full" id="saveWeekSettings" type="button">儲存週數設定</button></div></div>`;
+}
+async function saveScoreRule(){
+  try{
+    const mode=S.ruleMode||'personal';
+    const all=activeScoreRules();
+    const arr=all[mode].map(x=>[...x]);
+    const label=$('#ruleLabel')?.value.trim()||'';
+    const points=Number($('#rulePoints')?.value);
+    let key=($('#ruleKey')?.value||'').trim().replace(/[^a-zA-Z0-9_\-]/g,'_');
+    if(!label)return toast('請輸入項目名稱');
+    if(!Number.isFinite(points))return toast('請輸入正確分數');
+    if(!key)key=`${mode}_${Date.now()}`;
+    if(S.ruleEdit?.index!=null)arr[S.ruleEdit.index]=[key,label,points]; else arr.push([key,label,points]);
+    all[mode]=arr;
+    // 先更新畫面，再寫入 Firebase，避免按下後看起來沒有反應。
+    S.settings={...S.settings,scoreRules:{personal:all.personal.map(x=>[...x]),team:all.team.map(x=>[...x])}};
+    S.ruleEdit=null;
+    render();
+    toast('正在儲存積分項目…');
+    await writeSettingsPatch({scoreRules:S.settings.scoreRules},'積分項目已儲存並完成驗證');
+  }catch(e){
+    console.error('saveScoreRule failed',e);
+    toast(`儲存失敗：${e?.message||'請稍後再試'}`);
+  }
+}
+async function deleteScoreRule(index){
+  try{
+    const mode=S.ruleMode||'personal';
+    const all=activeScoreRules();
+    const arr=all[mode].map(x=>[...x]);
+    if(!arr[index])return toast('找不到這個積分項目');
+    const deletedItem=[...arr[index]];
+    const itemName=deletedItem[1];
+    if(!confirm(`確定刪除「${itemName}」？刪除後仍可從「最近刪除」復原。`))return;
+    arr.splice(index,1);
+    all[mode]=arr;
+    const deletedScoreRules=[...(S.settings.deletedScoreRules||[]),{mode,item:deletedItem,deletedAt:Date.now()}].slice(-50);
+    // 先更新本機畫面，避免使用者以為沒有刪除成功。
+    S.settings={...S.settings,scoreRules:{personal:all.personal.map(x=>[...x]),team:all.team.map(x=>[...x])},deletedScoreRules};
+    S.ruleEdit=null;
+    render();
+    toast('正在移到最近刪除…');
+    await writeSettingsPatch({scoreRules:S.settings.scoreRules,deletedScoreRules},`已刪除「${itemName}」，可在最近刪除復原`);
+  }catch(e){
+    console.error('deleteScoreRule failed',e);
+    toast(`刪除失敗：${e?.message||'請稍後再試'}`);
+  }
+}
+async function restoreScoreRule(filteredIndex){
+  try{
+    const mode=S.ruleMode||'personal';
+    const allDeleted=[...(S.settings.deletedScoreRules||[])];
+    const modeItems=allDeleted.map((x,idx)=>({...x,_idx:idx})).filter(x=>x.mode===mode);
+    const target=modeItems[filteredIndex];
+    if(!target)return toast('找不到可復原項目');
+    const all=activeScoreRules();
+    const arr=all[mode].map(x=>[...x]);
+    const restored=Array.isArray(target.item)?[...target.item]:[target.item?.key,target.item?.label,Number(target.item?.points||0)];
+    if(!restored[0]||!restored[1])return toast('復原資料不完整');
+    if(arr.some(x=>x[0]===restored[0])) restored[0]=`${restored[0]}_restored_${Date.now()}`;
+    arr.push(restored);
+    all[mode]=arr;
+    allDeleted.splice(target._idx,1);
+    S.settings={...S.settings,scoreRules:{personal:all.personal.map(x=>[...x]),team:all.team.map(x=>[...x])},deletedScoreRules:allDeleted};
+    render();
+    toast('正在復原積分項目…');
+    await writeSettingsPatch({scoreRules:S.settings.scoreRules,deletedScoreRules:allDeleted},`已復原「${restored[1]}」`);
+  }catch(e){
+    console.error('restoreScoreRule failed',e);
+    toast(`復原失敗：${e?.message||'請稍後再試'}`);
+  }
+}
+async function saveWeekSettings(){
+  try{
+    const baseStart=$('#ruleBaseStart')?.value||'2026-07-06';
+    const weekCount=Math.max(1,Number($('#ruleWeekCount')?.value||26));
+    S.settings={...S.settings,baseStart,weekCount};
+    S.scoreWeekManual=false;
+    S.scoreWeek=currentWeekNumber();
+    render();
+    toast('正在儲存週數設定…');
+    await writeSettingsPatch({baseStart,weekCount},`週數設定已儲存，目前自動為第 ${S.scoreWeek} 週`);
+  }catch(e){
+    console.error('saveWeekSettings failed',e);
+    toast(`週數儲存失敗：${e?.message||'請稍後再試'}`);
+  }
+}
+function dataImport(){
+  const rows=S.excelImportRows||[];
+  const preview=rows.slice(0,10);
+  return `<h2>📥 Excel 匯入人員與隊伍</h2>
+  <div class="notice">請使用 Excel（.xlsx／.xls）或 CSV。欄位建議使用：<b>姓名、隊伍、職級、電話</b>。系統會依 Excel 內容自動建立不存在的隊伍，再匯入人員；同一隊伍的同名人員會自動略過，不會覆蓋既有資料。</div>
+  <div class="split" style="margin-top:14px">
+    <div>
+      <h3>① 下載空白範本</h3>
+      <p class="fileNote">範本只有欄位名稱，不含任何姓名或隊伍。</p>
+      <button class="btn secondary full" id="downloadExcelTemplate" type="button">⬇️ 下載 Excel 空白範本</button>
+    </div>
+    <div>
+      <h3>② 選擇 Excel</h3>
+      <input id="excelImportFile" type="file" accept=".xlsx,.xls,.csv" />
+      <p class="fileNote">${S.excelImportFile?`已選擇：${esc(S.excelImportFile)}`:'尚未選擇檔案'}</p>
+    </div>
+  </div>
+  ${rows.length?`<div class="card blue" style="margin-top:14px"><h3>③ 匯入前預覽</h3><p>讀取到 <b>${rows.length}</b> 筆有效資料，以下顯示前 ${Math.min(10,rows.length)} 筆。</p><div style="overflow:auto"><table class="table"><thead><tr><th>姓名</th><th>隊伍</th><th>職級</th><th>電話</th></tr></thead><tbody>${preview.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.team)}</td><td>${esc(r.role)}</td><td>${esc(r.phone)}</td></tr>`).join('')}</tbody></table></div><button class="btn full" id="startExcelImport" type="button">✅ 確認匯入 ${rows.length} 筆</button></div>`:''}
+  <div class="card" style="margin-top:14px"><b>目前平台資料</b><p>隊伍：${S.teams.length} 個｜人員：${S.members.length} 位</p>${S.importReport?`<div class="notice">${esc(S.importReport)}</div>`:''}</div>
+  <div class="card" style="margin-top:14px"><h3>Excel 欄位格式</h3><table class="table"><thead><tr><th>姓名</th><th>隊伍</th><th>職級</th><th>電話</th></tr></thead><tbody><tr><td>必填</td><td>建議填寫</td><td>選填</td><td>選填</td></tr></tbody></table><p class="fileNote">也支援常見欄位名稱，例如「名字／Name」、「組別／Team」、「職稱／Role」、「手機／Phone」。</p></div>`;
+}
+function excelValue(row, names){
+  const map={};
+  Object.keys(row||{}).forEach(k=>map[norm(k)]=row[k]);
+  for(const n of names){const v=map[norm(n)];if(v!==undefined&&String(v).trim()!=='')return String(v).trim();}
+  return '';
+}
+async function readExcelImport(input){
+  try{
+    const file=input?.files?.[0];
+    if(!file)return;
+    if(!window.XLSX) throw new Error('Excel 元件載入失敗，請確認網路連線後重試');
+    toast('正在讀取 Excel…');
+    const buf=await file.arrayBuffer();
+    const wb=window.XLSX.read(buf,{type:'array'});
+    const ws=wb.Sheets[wb.SheetNames[0]];
+    const raw=window.XLSX.utils.sheet_to_json(ws,{defval:'',raw:false});
+    const rows=[];
+    for(const r of raw){
+      const name=excelValue(r,['姓名','名字','人員姓名','name']);
+      const team=excelValue(r,['隊伍','組別','團隊','team']);
+      const role=excelValue(r,['職級','職稱','身份','role']);
+      const phone=excelValue(r,['電話','手機','聯絡電話','phone','mobile']);
+      if(!name) continue;
+      rows.push({name,team,role,phone});
+    }
+    S.excelImportRows=rows;
+    S.excelImportFile=file.name;
+    S.importReport=rows.length?`已讀取 ${rows.length} 筆，請確認預覽後按「確認匯入」。`:'Excel 中找不到有效姓名資料，請檢查第一列欄位名稱。';
+    render();
+  }catch(e){console.error(e);S.excelImportRows=[];S.excelImportFile='';S.importReport='Excel 讀取失敗：'+(e?.message||e);render();}
+}
+function downloadExcelTemplate(){
+  try{
+    if(!window.XLSX) throw new Error('Excel 元件尚未載入');
+    const ws=window.XLSX.utils.json_to_sheet([],{header:['姓名','隊伍','職級','電話']});
+    const wb=window.XLSX.utils.book_new();
+    window.XLSX.utils.book_append_sheet(wb,ws,'人員匯入');
+    window.XLSX.writeFile(wb,'AMR_人員隊伍匯入範本.xlsx');
+  }catch(e){console.error(e);toast('範本下載失敗');}
+}
+async function importExcelRows(){
+  const rows=S.excelImportRows||[];
+  if(!rows.length)return toast('請先選擇 Excel 檔案');
+  if(!confirm(`確定匯入 ${rows.length} 筆人員資料？`))return;
+  try{
+    toast('正在匯入，請稍候…');
+    const teamMap=new Map(S.teams.map(t=>[norm(t.name),{id:t.id,name:t.name}]));
+    const memberSet=new Set(S.members.map(m=>norm((m.teamName||teamName(m.teamId)||'')+'|'+(m.name||''))));
+    let addedTeams=0,addedMembers=0,skippedMembers=0;
+    for(const r of rows){
+      let teamId='',teamNameVal='';
+      if(r.team){
+        const key=norm(r.team);
+        let t=teamMap.get(key);
+        if(!t){
+          const ref=await addDoc(col('teams'),{name:r.team,note:'由 Excel 匯入',source:'excel',createdAt:serverTimestamp(),updatedAt:serverTimestamp()});
+          t={id:ref.id,name:r.team};teamMap.set(key,t);addedTeams++;
+        }
+        teamId=t.id;teamNameVal=t.name;
+      }
+      const mkey=norm(teamNameVal+'|'+r.name);
+      if(memberSet.has(mkey)){skippedMembers++;continue;}
+      await addDoc(col('members'),{name:r.name,teamId,teamName:teamNameVal,role:r.role||'',phone:r.phone||'',status:'active',source:'excel',createdAt:serverTimestamp(),updatedAt:serverTimestamp()});
+      memberSet.add(mkey);addedMembers++;
+    }
+    S.importReport=`Excel 匯入完成：新增 ${addedTeams} 個隊伍、${addedMembers} 位人員；略過重複 ${skippedMembers} 位。`;
+    S.excelImportRows=[];S.excelImportFile='';
+    render();toast('Excel 匯入完成');
+  }catch(e){console.error(e);S.importReport='Excel 匯入失敗：'+(e?.message||e);render();toast('匯入失敗');}
+}
+function themeCenter(){return `<h2>🎨 主題中心</h2><div class="grid grid2">${themes.map(([id,name])=>`<button class="btn ${S.settings.theme===id?'':'secondary'}" data-theme-set="${id}" type="button">${name}</button>`).join('')}</div><p class="fileNote">主題會同步到 Firebase，所有裝置重新開啟後會套用同一主題。</p>`}
+async function setTheme(id){try{toast('正在套用主題…');await writeSettingsPatch({theme:id},'主題已套用')}catch(e){console.error(e);toast(`主題儲存失敗：${e?.message||e}`)}}
+
+
+async function waitForFirebaseUser(timeoutMs=10000){if(currentUser)return currentUser;return await new Promise((resolve,reject)=>{let done=false;const timer=setTimeout(()=>{if(!done){done=true;reject(new Error('Firebase 登入逾時，請重新整理後再試'))}},timeoutMs);const off=onAuthStateChanged(auth,u=>{if(u&&!done){done=true;clearTimeout(timer);off();currentUser=u;resolve(u)}});signInAnonymously(auth).catch(e=>{if(!done){done=true;clearTimeout(timer);off();reject(e)}})})}
+function dataUrlToBlob(dataUrl){const [head,body]=dataUrl.split(',');const mime=(head.match(/data:(.*?);/)||[])[1]||'image/jpeg';const bin=atob(body);const arr=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);return new Blob([arr],{type:mime})}
+async function uploadImageFileDirect(file,folder,max=1600,targetBytes=700000){await waitForFirebaseUser();const data=await compressImageFile(file,max,targetBytes);const blob=dataUrlToBlob(data);const token=(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2));const path=`${folder}/${Date.now()}-${token}.jpg`;const snap=await uploadBytes(storageRef(storage,path),blob,{contentType:'image/jpeg'});return await getDownloadURL(snap.ref)}
+
+async function compressImageFile(f,max=1600,targetBytes=850000){
+  if(!f?.type?.startsWith('image/')) throw new Error('不是圖片');
+  const img=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src=r.result};r.onerror=rej;r.readAsDataURL(f)});
+  let w=img.width,h=img.height;if(Math.max(w,h)>max){const ratio=max/Math.max(w,h);w=Math.round(w*ratio);h=Math.round(h*ratio)}
+  const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);ctx.drawImage(img,0,0,w,h);
+  let q=.82,data=canvas.toDataURL('image/jpeg',q);while(data.length>targetBytes&&q>.35){q-=.07;data=canvas.toDataURL('image/jpeg',q)}
+  if(data.length>1000000)throw new Error('圖片太大');return data;
+}
+async function ensureStorageImage(value,folder='portal-images'){
+  if(!value)return '';
+  if(!String(value).startsWith('data:image/'))return value;
+  const blob=await fetch(value).then(r=>r.blob());
+  const ext=(blob.type.split('/')[1]||'jpg').replace('jpeg','jpg');
+  const token=(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2));
+  const path=`${folder}/${Date.now()}-${token}.${ext}`;
+  const snap=await uploadBytes(storageRef(storage,path),blob,{contentType:blob.type||'image/jpeg'});
+  return await getDownloadURL(snap.ref);
+}
+async function uploadCompressedImageFile(file,folder='portal-images',max=1600,targetBytes=850000){
+  const data=await compressImageFile(file,max,targetBytes);
+  return await ensureStorageImage(data,folder);
+}
+async function fileToData(input,target){const f=input.files?.[0];if(!f)return;try{toast('封面圖片處理中…');const data=await compressImageFile(f,1200,430000);$(target).value=data;if(S.edit?.type==='portal'){S.edit.data.image=data;S.edit.data.coverImage=data;}render();toast('封面圖片已準備，請按儲存人力資訊')}catch(e){console.error(e);toast(`圖片處理失敗：${e?.message||e}`)}finally{input.value=''}}
+async function handleBulkPortalFiles(input){const files=[...(input.files||[])];if(files.length!==6)return toast('請一次選擇剛好 6 張圖片');try{S.bulkPortalImages=[];for(let i=0;i<6;i++){toast(`正在處理第 ${i+1}/6 張…`);S.bulkPortalImages.push(await compressImageFile(files[i],1000,350000));}render();toast('六張封面已準備，可確認順序後儲存')}catch(e){S.bulkPortalImages=[];toast(`六張圖片處理失敗：${e?.message||e}`)}finally{input.value=''}}
+function snapshotPortalForm(){
+  const get=(id,fb='')=>document.querySelector(id)?.value ?? fb;
+  return {
+    type:get('#portalType','activity'),
+    title:get('#portalTitle',''),
+    subtitle:get('#portalSub',''),
+    icon:get('#portalIcon','⭐'),
+    image:get('#portalImage',''),
+    coverImage:get('#portalImage',''),
+    content:get('#portalContent',''),
+    date:get('#portalDate',''), time:get('#portalDate',''), eventDate:get('#portalDate',''),
+    place:get('#portalPlace',''), location:get('#portalPlace',''), eventPlace:get('#portalPlace',''),
+    url:get('#portalUrl',''), link:get('#portalUrl',''), registrationUrl:get('#portalUrl',''),
+    buttonText:get('#portalButtonText',''),
+    pdfUrl:get('#portalPdf',''), pdfName:get('#portalPdfName',''),
+    youtubeUrl:get('#portalYoutube',''),
+    order:Number(get('#portalOrder','1')||1),
+    visible:get('#portalVisible','true')==='true'
+  };
+}
+async function handlePortalImageSlot(input,slot){
+  const file=input.files?.[0];if(!file)return;if(!S.edit?.id){toast('請先選擇左側人力資訊 並按編輯');input.value='';return;}input.disabled=true;
+  try{toast(`正在儲存人力資訊 第 ${slot+1} 張圖片…`);await saveFirestorePortalImage('portal',S.edit.id,slot,file);render();toast(`人力資訊第 ${slot+1} 張圖片已儲存，可立即預覽與移除`)}catch(e){console.error(e);toast(`圖片儲存失敗：${e?.message||e}`)}finally{input.disabled=false;input.value=''}
+}
+async function removePortalImageSlot(slot){try{if(!S.edit?.id)return;await removeFirestorePortalImage('portal',S.edit.id,slot);render();toast(`已移除 人力資訊第 ${slot+1} 張圖片`)}catch(e){console.error(e);toast(`移除失敗：${e?.message||e}`)}}
+async function handlePortalPdfFile(input){
+  const file=input.files?.[0];
+  if(!file)return;
+  if(file.type!=='application/pdf'&&!file.name.toLowerCase().endsWith('.pdf')){toast('請選擇 PDF 檔案');input.value='';return;}
+  if(file.size>25*1024*1024){toast('PDF 請小於 25MB');input.value='';return;}
+  try{
+    toast('PDF 上傳中…');
+    const safeName=file.name.replace(/[^a-zA-Z0-9._\-\u4e00-\u9fff]/g,'_');
+    const path=`portal-pdfs/${Date.now()}-${safeName}`;
+    const snap=await uploadBytes(storageRef(storage,path),file,{contentType:'application/pdf'});
+    const url=await getDownloadURL(snap.ref);
+    const urlInput=$('#portalPdf');const nameInput=$('#portalPdfName');
+    if(urlInput)urlInput.value=url;if(nameInput)nameInput.value=file.name;
+    if(S.edit?.type==='portal'){S.edit.data.pdfUrl=url;S.edit.data.pdfName=file.name;}
+    toast('PDF 已上傳，請按儲存人力資訊');
+    render();
+  }catch(e){console.error(e);toast('PDF 上傳失敗，請確認 Firebase Storage 規則');}
+}
+function render(){nav(); const check=new URLSearchParams(location.search).get('checkin'); if(check){app.innerHTML=checkinPage(check); bind(); return;} if(S.page==='home') app.innerHTML=home(); if(S.page==='score') app.innerHTML=scorePage(); if(S.page==='qr') app.innerHTML=qr(); if(S.page==='ranking') app.innerHTML=ranking(); if(S.page==='portal') app.innerHTML=portal(); if(S.page==='admin') app.innerHTML=admin(); bind();}
+function bind(){ $('#homeRankWeek')&&($('#homeRankWeek').onchange=e=>{S.homeRankWeek=Number(e.target.value||currentWeekNumber());render()});document.querySelectorAll('[data-go]').forEach(b=>b.onclick=e=>{e.preventDefault(); if(b.dataset.scoremode)S.scoreMode=b.dataset.scoremode; go(b.dataset.go)}); document.querySelectorAll('[data-scoretab]').forEach(b=>b.onclick=()=>{S.scoreMode=b.dataset.scoretab;render()}); document.querySelectorAll('[data-ranktab]').forEach(b=>b.onclick=()=>{S.rankTab=b.dataset.ranktab;render()}); $('#rankWeekAll')&&($('#rankWeekAll').onchange=e=>{S.rankWeekAll=e.target.checked;render()}); $('#rankWeek')&&($('#rankWeek').onchange=e=>{S.rankWeek=Number(e.target.value);S.rankWeekAll=false;render()}); $('#attendanceDate')&&($('#attendanceDate').onchange=e=>{S.attendanceDate=e.target.value;render()}); $('#attendanceTeam')&&($('#attendanceTeam').onchange=e=>{S.attendanceTeam=e.target.value;S.attendanceMember='';render()}); $('#attendanceMember')&&($('#attendanceMember').onchange=e=>{S.attendanceMember=e.target.value}); $('#attendanceStatus')&&($('#attendanceStatus').onchange=e=>{S.attendanceStatus=e.target.value}); $('#saveAttendance')&&($('#saveAttendance').onclick=saveAttendance); document.querySelectorAll('[data-del-att]').forEach(b=>b.onclick=()=>deleteAttendance(b.dataset.delAtt)); document.querySelectorAll('[data-admintab]').forEach(b=>b.onclick=()=>{S.adminTab=b.dataset.admintab;S.edit=null;S.entryEdit=null;S.entryDraftImages=[];S.entryDraftForm=null;S.hscEdit=null;render()}); document.querySelectorAll('[data-rulemode]').forEach(b=>b.onclick=()=>{S.ruleMode=b.dataset.rulemode;S.ruleEdit=null;render()}); document.querySelectorAll('[data-edit-rule]').forEach(b=>b.onclick=()=>{const r=activeScoreRules()[S.ruleMode][Number(b.dataset.editRule)];S.ruleEdit={index:Number(b.dataset.editRule),key:r[0],label:r[1],points:r[2]};render()}); document.querySelectorAll('[data-del-rule]').forEach(b=>b.onclick=()=>deleteScoreRule(Number(b.dataset.delRule))); document.querySelectorAll('[data-restore-rule]').forEach(b=>b.onclick=()=>restoreScoreRule(Number(b.dataset.restoreRule)));
+ $('#manualWeekToggle')&&($('#manualWeekToggle').onchange=e=>{S.scoreWeekManual=e.target.checked;S.scoreWeek=S.scoreWeekManual?(S.scoreWeek||currentWeekNumber()):currentWeekNumber();render()}); $('#scoreWeek')&&($('#scoreWeek').onchange=e=>{S.scoreWeekManual=true;S.scoreWeek=Number(e.target.value||currentWeekNumber())}); $('#scoreTeam')&&($('#scoreTeam').onchange=e=>{S.sharedTeam=e.target.value;S.sharedMember='';render()}); $('#scoreMember')&&($('#scoreMember').onchange=e=>{S.sharedMember=e.target.value}); document.querySelectorAll('[data-count]').forEach(b=>b.onclick=()=>{const mode=S.scoreMode;S.counts[mode]=S.counts[mode]||{};const k=b.dataset.count;S.counts[mode][k]=Math.max(0,Math.floor(Number(S.counts[mode][k]||0)+Number(b.dataset.delta)));render()}); document.querySelectorAll('[data-count-input]').forEach(i=>{i.oninput=()=>{const mode=S.scoreMode;S.counts[mode]=S.counts[mode]||{};const k=i.dataset.countInput;const v=Math.max(0,Math.floor(Number(i.value||0)));S.counts[mode][k]=v;i.value=String(v);const total=activeScoreRules()[mode].reduce((sum,[key,,pts])=>sum+(Number(S.counts[mode][key]||0)*Number(pts||0)),0);const totalEl=document.querySelector('.scoreTotal');if(totalEl)totalEl.textContent=`本次得分 ${total} 分`;};i.onchange=i.oninput;}); $('#saveScore')&&($('#saveScore').onclick=saveScore); $('#saveRule')&&($('#saveRule').onclick=saveScoreRule); $('#newRule')&&($('#newRule').onclick=()=>{S.ruleEdit=null;render()}); $('#saveWeekSettings')&&($('#saveWeekSettings').onclick=saveWeekSettings); $('#saveHsc')&&($('#saveHsc').onclick=saveHsc); $('#newHsc')&&($('#newHsc').onclick=()=>{S.hscEdit=null;render()}); document.querySelectorAll('[data-load-hsc]').forEach(b=>b.onclick=()=>{const d=S.humanSuperCup.find(x=>x.id===b.dataset.loadHsc);S.hscEdit={id:d.id,data:{...d}};render()}); document.querySelectorAll('[data-del-hsc]').forEach(b=>b.onclick=()=>deleteHsc(b.dataset.delHsc)); document.querySelectorAll('[data-restore-hsc]').forEach(b=>b.onclick=()=>restoreHsc(b.dataset.restoreHsc));
+ document.querySelectorAll('[data-edit-score]').forEach(b=>b.onclick=()=>editScore(b.dataset.editScore)); document.querySelectorAll('[data-del-score]').forEach(b=>b.onclick=()=>delScore(b.dataset.delScore)); $('#saveEditScore')&&($('#saveEditScore').onclick=saveEditScore); $('#editScoreModal')&&($('#editScoreModal').onclick=e=>{if(e.target.id==='editScoreModal'){S.editScoreId=null;render();}});
+ $('#createEvent')&&($('#createEvent').onclick=createEvent); document.querySelectorAll('[data-del-event]').forEach(b=>b.onclick=async()=>{if(confirm('刪除活動？')){await deleteDoc(doc(db,'events',b.dataset.delEvent));toast('已刪除')}});
+ $('#ckKind')&&($('#ckKind').onchange=e=>{$('#memberFields').classList.toggle('hidden',e.target.value==='friend');$('#friendFields').classList.toggle('hidden',e.target.value!=='friend')}); $('#ckTeam')&&($('#ckTeam').onchange=e=>{const mems=S.members.filter(m=>m.teamId===e.target.value);$('#ckMember').innerHTML='<option value="">請選姓名</option>'+mems.map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join('')}); $('#submitCheckin')&&($('#submitCheckin').onclick=e=>submitCheckin(e.currentTarget.dataset.eid));
+ document.querySelectorAll('[data-open-portal]').forEach(b=>b.onclick=e=>{e.preventDefault();S.selectedPortal=b.dataset.openPortal;render()}); document.querySelectorAll('[data-open-entry]').forEach(b=>b.onclick=e=>{e.preventDefault();S.selectedPortalEntry=b.dataset.openEntry;render()}); document.querySelectorAll('[data-back-section]').forEach(b=>b.onclick=()=>{S.selectedPortalEntry=null;render()});
+ $('#saveSettings')&&($('#saveSettings').onclick=saveSettings); $('#saveAnn')&&($('#saveAnn').onclick=saveAnn); $('#newAnn')&&($('#newAnn').onclick=()=>{S.edit=null;render()}); document.querySelectorAll('[data-load-ann]').forEach(b=>b.onclick=()=>{const d=S.announcements.find(x=>x.id===b.dataset.loadAnn);S.edit={type:'ann',id:b.dataset.loadAnn,data:d};render()}); document.querySelectorAll('[data-del-ann]').forEach(b=>b.onclick=async()=>{if(confirm('刪除公告？')){await deleteDoc(doc(db,'announcements',b.dataset.delAnn));toast('已刪除')}});
+ $('#saveTeam')&&($('#saveTeam').onclick=saveTeam); $('#newTeam')&&($('#newTeam').onclick=()=>{S.edit=null;render()}); document.querySelectorAll('[data-load-team]').forEach(b=>b.onclick=()=>{const d=S.teams.find(x=>x.id===b.dataset.loadTeam);S.edit={type:'team',id:b.dataset.loadTeam,data:d};render()}); document.querySelectorAll('[data-del-team]').forEach(b=>b.onclick=async()=>{if(confirm('刪除隊伍？')){await deleteDoc(doc(db,'teams',b.dataset.delTeam));toast('已刪除')}});
+ $('#saveMember')&&($('#saveMember').onclick=saveMember); $('#newMember')&&($('#newMember').onclick=()=>{S.edit=null;render()}); document.querySelectorAll('[data-load-member]').forEach(b=>b.onclick=()=>{const d=S.members.find(x=>x.id===b.dataset.loadMember);S.edit={type:'member',id:b.dataset.loadMember,data:d};render()}); document.querySelectorAll('[data-del-member]').forEach(b=>b.onclick=async()=>{if(confirm('刪除人員？')){await deleteDoc(doc(db,'members',b.dataset.delMember));toast('已刪除')}});
+ $('#savePortal')&&($('#savePortal').onclick=savePortal); $('#newPortal')&&($('#newPortal').onclick=()=>{S.edit=null;S.entryEdit=null;S.entryDraftImages=[];S.portalDraftImages=[];S.portalDraftForm=null;render()}); $('#portalImageFile')&&($('#portalImageFile').onchange=e=>fileToData(e.target,'#portalImage')); $('#bulkPortalFiles')&&($('#bulkPortalFiles').onchange=e=>handleBulkPortalFiles(e.target)); $('#applyBulkPortal')&&($('#applyBulkPortal').onclick=applyBulkPortalImages); $('#portalPdfFile')&&($('#portalPdfFile').onchange=e=>handlePortalPdfFile(e.target)); document.querySelectorAll('[data-load-portal]').forEach(b=>b.onclick=()=>{const d=S.portals.find(x=>x.id===b.dataset.loadPortal);S.edit={type:'portal',id:b.dataset.loadPortal,data:{...d,...slotPatch(readImageSlots(d))}};S.entryEdit=null;S.entryDraftImages=[];S.entryDraftForm=null;S.portalDraftImages=[];render()}); document.querySelectorAll('[data-del-portal]').forEach(b=>b.onclick=async()=>{if(confirm('刪除 Portal？')){await deleteDoc(doc(db,'portals',b.dataset.delPortal));toast('已刪除')}}); $('#saveEntry')&&($('#saveEntry').onclick=savePortalEntry); $('#newEntry')&&($('#newEntry').onclick=()=>{S.entryEdit=null;S.entryDraftImages=[];S.entryDraftForm=null;render()}); $('#entryCoverFile')&&($('#entryCoverFile').onchange=e=>handleEntryCover(e.target)); $('#entryPdfFile')&&($('#entryPdfFile').onchange=e=>handleEntryPdf(e.target)); document.querySelectorAll('[data-load-entry]').forEach(b=>b.onclick=()=>{const d=S.portalEntries.find(x=>x.id===b.dataset.loadEntry);S.entryEdit={id:d.id,data:{...d,...slotPatch(readImageSlots(d))}};S.entryDraftImages=[];S.entryDraftForm=null;render()}); document.querySelectorAll('[data-del-entry]').forEach(b=>b.onclick=async()=>{if(confirm('刪除此篇專區內容？')){await deleteDoc(doc(db,'portal_entries',b.dataset.delEntry));S.entryEdit=null;toast('已刪除')}});
+ document.querySelectorAll('[data-entry-image-slot]').forEach(i=>i.onchange=()=>handleEntryImageSlot(i,Number(i.dataset.entryImageSlot))); document.querySelectorAll('[data-remove-entry-slot]').forEach(b=>b.onclick=()=>removeEntryImageSlot(Number(b.dataset.removeEntrySlot))); document.querySelectorAll('[data-portal-image-slot]').forEach(i=>i.onchange=()=>handlePortalImageSlot(i,Number(i.dataset.portalImageSlot))); document.querySelectorAll('[data-remove-portal-slot]').forEach(b=>b.onclick=()=>removePortalImageSlot(Number(b.dataset.removePortalSlot)));
+ document.querySelectorAll('[data-theme-set]').forEach(b=>b.onclick=()=>setTheme(b.dataset.themeSet)); $('#downloadExcelTemplate')&&($('#downloadExcelTemplate').onclick=downloadExcelTemplate); $('#excelImportFile')&&($('#excelImportFile').onchange=e=>readExcelImport(e.target)); $('#startExcelImport')&&($('#startExcelImport').onclick=importExcelRows);
+}
+render();
+</script>
+</body>
+</html>
